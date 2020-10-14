@@ -47,3 +47,23 @@ int findColorById(eColor* list, int len, int id)
     }
     return indiceId;
 }
+
+int cargarNombre(eColor* lista, int len, int ID, char* nombre)
+{
+    int error = -1;
+
+    if(lista != NULL && nombre != NULL && len > 0)
+    {
+        for(int i = 0; i < len; i++)
+        {
+            if(lista[i].id == ID)
+            {
+                strcpy(nombre, lista[i].nombreColor);
+                error = 0;
+                break;
+            }
+        }
+    }
+
+    return error;
+}

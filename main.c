@@ -22,6 +22,10 @@ int main()
     int actualIDBicis = INIT_ID_BICI;
     eBicicleta listaBicicletas[LEN_BICI];
     int addNuevaBici;
+    //case 2
+    int modifBici;
+    //case 3
+    int remBici;
     //Tipos, colores y servicios
     eTipo tiposDeBicis[LEN_TIPOS] =
     {
@@ -75,20 +79,49 @@ int main()
                 }
                 break;
             case 2:
-                printf("Opcion en mantemiento.\n");
+                //modificar bici
+                modifBici = modifieBici(listaBicicletas, LEN_BICI, tiposDeBicis, LEN_TIPOS, coloresDeBicis, LEN_COLORES);
+                if(!modifBici)
+                {
+                    printf("\nModificacion exitosa.\n");
+                }
+                else if(modifBici == 1)
+                {
+                    printf("\nModificacion cancelada por usuario.\n");
+                }
+                else
+                {
+                    printf("\nHa ocurrido un problema. Intente nuevamente.\n");
+                }
                 break;
             case 3:
-                printf("Opcion en mantemiento.\n");
+                remBici = removeBici(listaBicicletas, LEN_BICI, tiposDeBicis, LEN_TIPOS, coloresDeBicis, LEN_COLORES);
+                if(!remBici)
+                {
+                    printf("\nBaja exitosa.\n");
+                }
+                else if(remBici == 1)
+                {
+                    printf("\nBaja cancelada por usuario.\n");
+                }
+                else
+                {
+                    printf("\nHa ocurrido un problema. Intente nuevamente.\n");
+                }
                 break;
             case 4:
                 system("cls");
                 printBicis(listaBicicletas, LEN_BICI, tiposDeBicis, LEN_TIPOS, coloresDeBicis, LEN_COLORES);
                 break;
             case 5:
-                printf("Opcion en mantemiento.\n");
+                //listar tipos
+                system("cls");
+                showTipos(tiposDeBicis, LEN_TIPOS);
                 break;
             case 6:
-                printf("Opcion en mantemiento.\n");
+                //listar colores
+                system("cls");
+                showColores(coloresDeBicis, LEN_COLORES);
                 break;
             case 7:
                 printf("Opcion en mantemiento.\n");

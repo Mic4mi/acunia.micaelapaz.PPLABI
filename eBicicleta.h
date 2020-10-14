@@ -19,6 +19,10 @@ int hardcodeBicis(eBicicleta* list, int len, int numberOfBicis);
 void formatName(char* name);
 //add
 int addBici(eBicicleta* list, int len, int ID, eTipo* listaTipos, int lenTipos, eColor* listaColores, int lenColores);
+//modificacion
+int modifieBici(eBicicleta* list, int len, eTipo* listaTipo, int lenTipo, eColor* listaColor, int lenColor);
+//Baja
+int removeBici(eBicicleta* list, int len, eTipo* listaTipo, int lenTipo, eColor* listaColor, int lenColor);
 //print
 int printBicis(eBicicleta* list, int len, eTipo* tipos, int lenTipos, eColor* colores, int lenColores);
 void showBici(eBicicleta bici, eTipo* tipos, int lenTipos, eColor* colores, int lenColores);

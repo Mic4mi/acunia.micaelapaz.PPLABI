@@ -9,5 +9,6 @@ typedef struct{
 int showColores(eColor* colores, int len);
 void showColor(eColor color);
 int findColorById(eColor* list, int len, int id);
+int cargarNombre(eColor* lista, int len, int ID, char* nombre);
 
 #endif // ECOLOR_H_INCLUDED
