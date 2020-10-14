@@ -8,13 +8,38 @@
 #include "eBicicleta.h"
 #include "eServicio.h"
 #include "eTrabajo.h"
+#define LEN_BICI 10
+#define INIT_ID_BICI 9000
 
 
 int main()
 {
     int opcMenu;
     int opcSelect;
-
+    eBicicleta listaBicicletas[LEN_BICI];
+    //Tipos, colores y servicios
+    eTipo tipos[] =
+    {
+        {1000, "Rutera"},
+        {1001, "Carrera"},
+        {1002, "Mountain"},
+        {1003, "BMX"}
+    };
+    eColor colores[] =
+    {
+        {5000, "Gris"},
+        {5001, "Negro"},
+        {5002, "Blanco"},
+        {5003, "Azul"},
+        {5004, "Rojo"}
+    };
+    eServicio servicios[] =
+    {
+        {20000, "Limpieza", 250},
+        {20001, "Parche", 300},
+        {20002, "Centrado", 400},
+        {20003, "Cadena", 350},
+    };
 
     do
     {
@@ -64,51 +89,3 @@ int main()
 }
 
 
-int getOption(int* pResult, char* errorMsj, int min, int max)
-{
-    int error = -1;
-    int opcion;
-    int validate;
-    if(pResult != NULL && errorMsj != NULL && min <= max)
-    {
-        do
-        {
-            printf("\nIngrese opcion: ");
-            fflush(stdin);
-            scanf("%d", &opcion);
-            validate = isdigit(opcion);
-            if((opcion >= min && opcion <= max) && !validate)
-            {
-                *pResult = opcion;
-                error = 0;
-            }
-            else
-            {
-                printf("%s\n", errorMsj);
-                system("pause");
-            }
-        }
-        while(error != 0);
-    }
-    return error;
-}
-
-void menu()
-{
-    system("cls");
-    printf("********************************************************************************************************\n");
-    printf("                                               PARCIAL 1          \n");
-    printf("********************************************************************************************************\n");
-    printf("                                          SISTEMA BICICLETERIA                    \n");
-    printf("********************************************************************************************************\n");
-    printf("1. ALTA BICICLETA\n");
-    printf("2. MODIFICAR BICICLETA\n");
-    printf("3. BAJA BICICLETA\n");
-    printf("4. LISTAR BICICLETAS\n");
-    printf("5. LISTAR COLORES\n");
-    printf("6. LISTAR TIPOS\n");
-    printf("7. LISTAR SERVICIOS\n");
-    printf("8. ALTA TRABAJO\n");
-    printf("9. LISTAR TRABAJOS\n");
-    printf("10. SALIR\n");
-}
