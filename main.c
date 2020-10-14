@@ -9,6 +9,8 @@
 #include "eServicio.h"
 #include "eTrabajo.h"
 #define LEN_BICI 10
+#define LEN_COLORES 5
+#define LEN_TIPOS 4
 #define INIT_ID_BICI 9000
 
 
@@ -16,16 +18,19 @@ int main()
 {
     int opcMenu;
     int opcSelect;
+    int hardcodeResult;
+    int actualIDBicis = INIT_ID_BICI;
     eBicicleta listaBicicletas[LEN_BICI];
+    int addNuevaBici;
     //Tipos, colores y servicios
-    eTipo tipos[] =
+    eTipo tiposDeBicis[LEN_TIPOS] =
     {
         {1000, "Rutera"},
         {1001, "Carrera"},
         {1002, "Mountain"},
         {1003, "BMX"}
     };
-    eColor colores[] =
+    eColor coloresDeBicis[LEN_COLORES] =
     {
         {5000, "Gris"},
         {5001, "Negro"},
@@ -41,6 +46,9 @@ int main()
         {20003, "Cadena", 350},
     };
 
+    initBicis(listaBicicletas, LEN_BICI);
+    hardcodeResult = hardcodeBicis(listaBicicletas, LEN_BICI, 5);
+    actualIDBicis += hardcodeResult + 1;
     do
     {
         menu();
@@ -50,7 +58,21 @@ int main()
             switch(opcSelect)
             {
             case 1:
-                printf("Opcion en mantemiento.\n");
+                //Cargar bici
+                system("cls");
+                printf("*********************************************************************************************************\n");
+                printf("                                            ANIADIR BICICLETA     \n");
+                printf("*********************************************************************************************************\n");
+                addNuevaBici = addBici(listaBicicletas, LEN_BICI, actualIDBicis, tiposDeBicis, LEN_TIPOS, coloresDeBicis, LEN_COLORES);
+                if(addNuevaBici < 0)
+                {
+                    printf("\nHa ocurrido un problema. Intente nuevamente.\n");
+                }
+                else
+                {
+                    printf("\nOperacion exitosa\n");
+                    actualIDBicis++;
+                }
                 break;
             case 2:
                 printf("Opcion en mantemiento.\n");
@@ -59,7 +81,8 @@ int main()
                 printf("Opcion en mantemiento.\n");
                 break;
             case 4:
-                printf("Opcion en mantemiento.\n");
+                system("cls");
+                printBicis(listaBicicletas, LEN_BICI, tiposDeBicis, LEN_TIPOS, coloresDeBicis, LEN_COLORES);
                 break;
             case 5:
                 printf("Opcion en mantemiento.\n");
