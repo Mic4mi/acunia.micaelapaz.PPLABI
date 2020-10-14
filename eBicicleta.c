@@ -430,8 +430,8 @@ void formatName(char* name)
 int altaTrabajo(eTrabajo* list, int len, int ID, eBicicleta* listaBicis, int lenBicis, eServicio* listaServicios, int lenServicios, eTipo* tiposDeBici, int lenTiposBicis, eColor* coloresDeBicis, int lenColores)
 {
     eTrabajo newTrabajo;
-    int index;
     int biciIDValido;
+    int servIDValido;
     if(list != NULL && len > 0 && len <= 100 && listaBicis != NULL && lenBicis > 0 && listaServicios != NULL && lenServicios > 0)
     {
         for(int i = 0; i < len; i++)
@@ -446,16 +446,26 @@ int altaTrabajo(eTrabajo* list, int len, int ID, eBicicleta* listaBicis, int len
                 fflush(stdin);
                 scanf("%d", &newTrabajo.idBicicleta);
                 biciIDValido = findBiciById(listaBicis, lenBicis, newTrabajo.idBicicleta);
-                while( tipoIDValido < 0)
+                while(  biciIDValido < 0)
                 {
                     printf("\nDato invalido. Ingrese ID tipo: ");
                     fflush(stdin);
                     scanf("%d", &newTrabajo.idBicicleta);
                     biciIDValido = findBiciById(listaBicis, lenBicis, newTrabajo.idBicicleta);
                 }
-
                 //Pedir Servicio
-
+                showServicios(listaServicios, lenServicios);
+                printf("\nIngrese ID del servicio: ");
+                fflush(stdin);
+                scanf("%d", &newTrabajo.idServicio);
+                servIDValido = findServicioById(listaServicios, lenServicios, newTrabajo.idServicio);
+                while(  biciIDValido < 0)
+                {
+                    printf("\nDato invalido. Ingrese ID tipo: ");
+                    fflush(stdin);
+                    scanf("%d", &newTrabajo.idServicio);
+                    servIDValido = findServicioById(listaServicios, lenServicios, newTrabajo.idServicio);
+                }
                 list[i] = newTrabajo;
                 return 0;
             }

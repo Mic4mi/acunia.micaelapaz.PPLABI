@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1602686650 source:c:\users\micae\onedrive\escritorio\utn\prog & lab\parciales\parcial-laboratorio1\ebicicleta.c
+1602688210 source:c:\users\micae\onedrive\escritorio\utn\prog & lab\parciales\parcial-laboratorio1\ebicicleta.c
 	<stdio.h>
 	<stdlib.h>
 	<ctype.h>
@@ -8,6 +8,8 @@
 	"eTipo.h"
 	"eColor.h"
 	"eBicicleta.h"
+	"eTrabajo.h"
+	"eServicio.h"
 
 1602686650 c:\users\micae\onedrive\escritorio\utn\prog & lab\parciales\parcial-laboratorio1\ebicicleta.h
 
@@ -29,7 +31,7 @@
 
 1602686293 c:\users\micae\onedrive\escritorio\utn\prog & lab\parciales\parcial-laboratorio1\ecolor.h
 
-1602677067 c:\users\micae\onedrive\escritorio\utn\prog & lab\parciales\parcial-laboratorio1\eservicio.h
+1602688548 c:\users\micae\onedrive\escritorio\utn\prog & lab\parciales\parcial-laboratorio1\eservicio.h
 
 1602687510 c:\users\micae\onedrive\escritorio\utn\prog & lab\parciales\parcial-laboratorio1\etrabajo.h
 	"eFecha.h"
@@ -55,4 +57,11 @@
 	<stdlib.h>
 	<ctype.h>
 	<string.h>
+
+1602688327 source:c:\users\micae\onedrive\escritorio\utn\prog & lab\parciales\parcial-laboratorio1\eservicio.c
+	<stdio.h>
+	<stdlib.h>
+	<ctype.h>
+	<string.h>
+	"eServicio.h"
 

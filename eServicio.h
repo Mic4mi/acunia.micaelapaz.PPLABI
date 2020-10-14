@@ -7,4 +7,9 @@ typedef struct{
     float precio;
 }eServicio;
 
+int showServicios(eServicio* servicios, int len);
+void showServicio(eServicio servicio);
+int findServicioById(eServicio* list, int len, int id);
+int cargarDescServ(eServicio* lista, int len, int ID, char* descripcion);
+
 #endif // ESERVICIO_H_INCLUDED
