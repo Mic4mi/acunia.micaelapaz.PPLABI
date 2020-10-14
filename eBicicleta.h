@@ -1,5 +1,7 @@
 #ifndef EBICICLETA_H_INCLUDED
 #define EBICICLETA_H_INCLUDED
+#include "eServicio.h"
+#include "eTrabajo.h"
 
 typedef struct{
     int id;
@@ -26,5 +28,10 @@ int removeBici(eBicicleta* list, int len, eTipo* listaTipo, int lenTipo, eColor*
 //print
 int printBicis(eBicicleta* list, int len, eTipo* tipos, int lenTipos, eColor* colores, int lenColores);
 void showBici(eBicicleta bici, eTipo* tipos, int lenTipos, eColor* colores, int lenColores);
+
+
+//TRABAJOS
+int initTrabajos(eTrabajo* list, int len);
+int altaTrabajo(eTrabajo* list, int len, int ID, eBicicleta* listaBicis, int lenBicis, eServicio* listaServicios, int lenServicios, eTipo* tiposDeBici, int lenTiposBicis, eColor* coloresDeBicis, int lenColores);
 
 #endif // EBICICLETA_H_INCLUDED

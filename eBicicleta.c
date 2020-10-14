@@ -6,8 +6,8 @@
 #include "eTipo.h"
 #include "eColor.h"
 #include "eBicicleta.h"
-#include "eTrabajo.h"
-#include "eServicio.h"
+
+
 
 
 int getOption(int* pResult, char* errorMsj, int min, int max)
@@ -459,7 +459,7 @@ int altaTrabajo(eTrabajo* list, int len, int ID, eBicicleta* listaBicis, int len
                 fflush(stdin);
                 scanf("%d", &newTrabajo.idServicio);
                 servIDValido = findServicioById(listaServicios, lenServicios, newTrabajo.idServicio);
-                while(  biciIDValido < 0)
+                while(  servIDValido < 0)
                 {
                     printf("\nDato invalido. Ingrese ID tipo: ");
                     fflush(stdin);
@@ -471,6 +471,21 @@ int altaTrabajo(eTrabajo* list, int len, int ID, eBicicleta* listaBicis, int len
             }
         }
         printf("\nNo hay lugar para otra bicicleta...\n");
+    }
+
+    return -1;
+}
+
+
+int initTrabajos(eTrabajo* list, int len)
+{
+    if(list != NULL && len > 0 && len <= 100)
+    {
+        for(int i = 0; i < len; i++)
+        {
+            list[i].estaVacio = 1;
+        }
+        return 0;
     }
 
     return -1;

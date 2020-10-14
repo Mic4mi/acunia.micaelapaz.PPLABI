@@ -30,6 +30,7 @@ int main()
     int modifBici;
     //case 3
     int remBici;
+    int altaTrabajos;
     //Trabajos
     eTrabajo listaTrabajos[LEN_TRABAJOS];
     //Tipos, colores y servicios
@@ -57,7 +58,7 @@ int main()
     };
 
     initBicis(listaBicicletas, LEN_BICI);
-    initTrabajos(listaTrabajos, LEN_TRABAJOS)
+    initTrabajos(listaTrabajos, LEN_TRABAJOS);
     hardcodeResult = hardcodeBicis(listaBicicletas, LEN_BICI, 5);
     actualIDBicis += hardcodeResult + 1;
     do
@@ -136,19 +137,30 @@ int main()
                 showServicios(servicios, LEN_SERVICIOS);
                 break;
             case 8:
-                printf("Opcion en mantemiento.\n");
+                //alta trabajo
+                system("cls");
+                printf("*********************************************************************************************************\n");
+                printf("                                            ANIADIR TRABAJO     \n");
+                printf("*********************************************************************************************************\n");
+                altaTrabajos = altaTrabajo(listaTrabajos, LEN_TRABAJOS, actualIDTrabajos, listaBicicletas, LEN_BICI, servicios, LEN_SERVICIOS, tiposDeBicis, LEN_TIPOS, coloresDeBicis, LEN_COLORES);
+                if(altaTrabajos < 0)
+                {
+                    printf("\nHa ocurrido un problema. Intente nuevamente.\n");
+                }
+                else
+                {
+                    printf("\nOperacion exitosa\n");
+                    actualIDBicis++;
+                }
                 break;
             case 9:
-                printf("Opcion en mantemiento.\n");
-                break;
-            case 10:
                 printf("Saliendo...\n");
                 break;
             }
             system("pause");
         }
     }
-    while(opcSelect != 10);
+    while(opcSelect != 9);
 
     return 0;
 }

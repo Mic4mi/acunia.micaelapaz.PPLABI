@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1602688210 source:c:\users\micae\onedrive\escritorio\utn\prog & lab\parciales\parcial-laboratorio1\ebicicleta.c
+1602689282 source:c:\users\micae\onedrive\escritorio\utn\prog & lab\parciales\parcial-laboratorio1\ebicicleta.c
 	<stdio.h>
 	<stdlib.h>
 	<ctype.h>
@@ -11,9 +11,11 @@
 	"eTrabajo.h"
 	"eServicio.h"
 
-1602686650 c:\users\micae\onedrive\escritorio\utn\prog & lab\parciales\parcial-laboratorio1\ebicicleta.h
+1602689355 c:\users\micae\onedrive\escritorio\utn\prog & lab\parciales\parcial-laboratorio1\ebicicleta.h
+	"eServicio.h"
+	"eTrabajo.h"
 
-1602686950 source:c:\users\micae\onedrive\escritorio\utn\prog & lab\parciales\parcial-laboratorio1\main.c
+1602689289 source:c:\users\micae\onedrive\escritorio\utn\prog & lab\parciales\parcial-laboratorio1\main.c
 	<stdio.h>
 	<stdlib.h>
 	<ctype.h>
