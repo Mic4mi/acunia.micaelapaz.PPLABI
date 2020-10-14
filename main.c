@@ -155,13 +155,16 @@ int main()
                 }
                 break;
             case 9:
+                printf("Opcion en mantenimiento...\n");
+                break;
+            case 10:
                 printf("Saliendo...\n");
                 break;
             }
             system("pause");
         }
     }
-    while(opcSelect != 9);
+    while(opcSelect != 10);
 
     return 0;
 }
