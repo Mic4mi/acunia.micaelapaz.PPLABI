@@ -122,14 +122,15 @@ int main()
                 printBicis(listaBicicletas, LEN_BICI, tiposDeBicis, LEN_TIPOS, coloresDeBicis, LEN_COLORES);
                 break;
             case 5:
-                //listar tipos
-                system("cls");
-                showTipos(tiposDeBicis, LEN_TIPOS);
-                break;
-            case 6:
                 //listar colores
                 system("cls");
                 showColores(coloresDeBicis, LEN_COLORES);
+
+                break;
+            case 6:
+                //listar tipos
+                system("cls");
+                showTipos(tiposDeBicis, LEN_TIPOS);
                 break;
             case 7:
                 //LISTAR SERVICIOS
