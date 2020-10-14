@@ -9,9 +9,12 @@
 #include "eServicio.h"
 #include "eTrabajo.h"
 #define LEN_BICI 10
+#define LEN_TRABAJOS 10
 #define LEN_COLORES 5
 #define LEN_TIPOS 4
+#define LEN_SERVICIOS 4
 #define INIT_ID_BICI 9000
+#define INIT_ID_TRABAJO 10000
 
 
 int main()
@@ -20,12 +23,15 @@ int main()
     int opcSelect;
     int hardcodeResult;
     int actualIDBicis = INIT_ID_BICI;
+    int actualIDTrabajos = INIT_ID_TRABAJO;
     eBicicleta listaBicicletas[LEN_BICI];
     int addNuevaBici;
     //case 2
     int modifBici;
     //case 3
     int remBici;
+    //Trabajos
+    eTrabajo listaTrabajos[LEN_TRABAJOS];
     //Tipos, colores y servicios
     eTipo tiposDeBicis[LEN_TIPOS] =
     {
@@ -51,6 +57,7 @@ int main()
     };
 
     initBicis(listaBicicletas, LEN_BICI);
+    initTrabajos(listaTrabajos, LEN_TRABAJOS)
     hardcodeResult = hardcodeBicis(listaBicicletas, LEN_BICI, 5);
     actualIDBicis += hardcodeResult + 1;
     do
@@ -124,7 +131,9 @@ int main()
                 showColores(coloresDeBicis, LEN_COLORES);
                 break;
             case 7:
-                printf("Opcion en mantemiento.\n");
+                //LISTAR SERVICIOS
+                system("cls");
+                showServicios(servicios, LEN_SERVICIOS);
                 break;
             case 8:
                 printf("Opcion en mantemiento.\n");
