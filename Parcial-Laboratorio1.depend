@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1602689387 source:c:\users\micae\onedrive\escritorio\utn\prog & lab\parciales\parcial-laboratorio1\ebicicleta.c
+1603071486 source:c:\users\micae\onedrive\escritorio\utn\prog & lab\parciales\parcial-laboratorio1\ebicicleta.c
 	<stdio.h>
 	<stdlib.h>
 	<ctype.h>
@@ -9,11 +9,11 @@
 	"eColor.h"
 	"eBicicleta.h"
 
-1602689355 c:\users\micae\onedrive\escritorio\utn\prog & lab\parciales\parcial-laboratorio1\ebicicleta.h
-	"eServicio.h"
-	"eTrabajo.h"
+1603071497 c:\users\micae\onedrive\escritorio\utn\prog & lab\parciales\parcial-laboratorio1\ebicicleta.h
+	"eColor.h"
+	"eTipo.h"
 
-1602691839 source:c:\users\micae\onedrive\escritorio\utn\prog & lab\parciales\parcial-laboratorio1\main.c
+1603078188 source:c:\users\micae\onedrive\escritorio\utn\prog & lab\parciales\parcial-laboratorio1\main.c
 	<stdio.h>
 	<stdlib.h>
 	<ctype.h>
@@ -33,10 +33,12 @@
 
 1602688548 c:\users\micae\onedrive\escritorio\utn\prog & lab\parciales\parcial-laboratorio1\eservicio.h
 
-1602687510 c:\users\micae\onedrive\escritorio\utn\prog & lab\parciales\parcial-laboratorio1\etrabajo.h
+1603077818 c:\users\micae\onedrive\escritorio\utn\prog & lab\parciales\parcial-laboratorio1\etrabajo.h
 	"eFecha.h"
+	"eServicio.h"
+	"eBicicleta.h"
 
-1602678806 c:\users\micae\onedrive\escritorio\utn\prog & lab\parciales\parcial-laboratorio1\datastore.h
+1603077910 c:\users\micae\onedrive\escritorio\utn\prog & lab\parciales\parcial-laboratorio1\datastore.h
 
 1602686293 source:c:\users\micae\onedrive\escritorio\utn\prog & lab\parciales\parcial-laboratorio1\ecolor.c
 	<stdio.h>
@@ -52,11 +54,13 @@
 	<string.h>
 	"eTipo.h"
 
-1602687386 source:c:\users\micae\onedrive\escritorio\utn\prog & lab\parciales\parcial-laboratorio1\etrabajo.c
+1603078230 source:c:\users\micae\onedrive\escritorio\utn\prog & lab\parciales\parcial-laboratorio1\etrabajo.c
 	<stdio.h>
 	<stdlib.h>
 	<ctype.h>
 	<string.h>
+	"dataStore.h"
+	"eTrabajo.h"
 
 1602688327 source:c:\users\micae\onedrive\escritorio\utn\prog & lab\parciales\parcial-laboratorio1\eservicio.c
 	<stdio.h>
@@ -64,4 +68,6 @@
 	<ctype.h>
 	<string.h>
 	"eServicio.h"
+
+1603077910 source:c:\users\micae\onedrive\escritorio\utn\prog & lab\parciales\parcial-laboratorio1\datastore.c
 

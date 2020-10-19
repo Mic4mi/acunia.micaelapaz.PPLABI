@@ -22,6 +22,7 @@ int main()
     int opcMenu;
     int opcSelect;
     int hardcodeResult;
+    int hardcodeResultTrab;
     int actualIDBicis = INIT_ID_BICI;
     int actualIDTrabajos = INIT_ID_TRABAJO;
     eBicicleta listaBicicletas[LEN_BICI];
@@ -60,6 +61,8 @@ int main()
     initBicis(listaBicicletas, LEN_BICI);
     initTrabajos(listaTrabajos, LEN_TRABAJOS);
     hardcodeResult = hardcodeBicis(listaBicicletas, LEN_BICI, 5);
+    hardcodeResultTrab = hardcodeTrabajos(listaTrabajos, LEN_TRABAJOS, 5);
+    actualIDTrabajos += hardcodeResultTrab + 1;
     actualIDBicis += hardcodeResult + 1;
     do
     {
@@ -125,7 +128,6 @@ int main()
                 //listar colores
                 system("cls");
                 showColores(coloresDeBicis, LEN_COLORES);
-
                 break;
             case 6:
                 //listar tipos
@@ -142,7 +144,6 @@ int main()
                 system("cls");
                 printf("*********************************************************************************************************\n");
                 printf("                                            ANIADIR TRABAJO     \n");
-                printf("*********************************************************************************************************\n");
                 altaTrabajos = altaTrabajo(listaTrabajos, LEN_TRABAJOS, actualIDTrabajos, listaBicicletas, LEN_BICI, servicios, LEN_SERVICIOS, tiposDeBicis, LEN_TIPOS, coloresDeBicis, LEN_COLORES);
                 if(altaTrabajos < 0)
                 {
@@ -151,11 +152,12 @@ int main()
                 else
                 {
                     printf("\nOperacion exitosa\n");
-                    actualIDBicis++;
+                    actualIDTrabajos++;
                 }
                 break;
             case 9:
-                printf("Opcion en mantenimiento...\n");
+                system("cls");
+                printTrabajos(listaTrabajos, LEN_TRABAJOS, listaBicicletas, LEN_BICI, servicios, LEN_SERVICIOS);
                 break;
             case 10:
                 printf("Saliendo...\n");
