@@ -31,6 +31,9 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
+		<Unit filename="dataStore.c">
+			<Option compilerVar="CC" />
+		</Unit>
 		<Unit filename="dataStore.h" />
 		<Unit filename="eBicicleta.c">
 			<Option compilerVar="CC" />

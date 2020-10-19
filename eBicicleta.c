@@ -363,10 +363,12 @@ int removeBici(eBicicleta* list, int len, eTipo* listaTipo, int lenTipo, eColor*
         index = findBiciById(list, len, id);
         if(index == -1)
         {
+            system("cls");
             printf("No hay bicicletas con ese ID\n");
         }
         else
         {
+            system("cls");
             printf("*********************************************************************************************************\n");
             printf("                                                BICLETAS      \n");
             printf("*********************************************************************************************************\n");

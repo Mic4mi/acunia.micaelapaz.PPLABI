@@ -11,8 +11,8 @@ int showServicios(eServicio* servicios, int len)
     {
         printf("++++++++++++++++++++++++++++++++++++++++++++++++\n");
         printf("                   SERVICIOS \n"                   );
-        printf("-------------------------------------------------\n");
-        printf("   ID                  DESCRIPCION        PRECIO\n");
+        printf("------------------------------------------------\n");
+        printf("   ID            DESCRIPCION           PRECIO\n");
         printf("++++++++++++++++++++++++++++++++++++++++++++++++\n");
         for(int i = 0; i < len; i++)
         {
@@ -26,7 +26,7 @@ int showServicios(eServicio* servicios, int len)
 
 void showServicio(eServicio servicio)
 {
-    printf("  %d    %20s       %4.2f\n", servicio.id, servicio.descripcion, servicio.precio);
+    printf("  %d    %15s            $%4.2f\n", servicio.id, servicio.descripcion, servicio.precio);
 }
 
 int findServicioById(eServicio* list, int len, int id)

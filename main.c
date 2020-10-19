@@ -106,6 +106,7 @@ int main()
                 }
                 break;
             case 3:
+                system("cls");
                 remBici = removeBici(listaBicicletas, LEN_BICI, tiposDeBicis, LEN_TIPOS, coloresDeBicis, LEN_COLORES);
                 if(!remBici)
                 {
