@@ -1,11 +1,12 @@
 #ifndef ESERVICIO_H_INCLUDED
 #define ESERVICIO_H_INCLUDED
 
-typedef struct{
+typedef struct
+{
     int id; //comienza en 20000
     char descripcion[30];
     float precio;
-}eServicio;
+} eServicio;
 
 
 /** \brief Imprime el contenido del array de servicios
@@ -15,14 +16,14 @@ typedef struct{
  * \return int Retorna (-1) si hay un Error [longitud invalida o puntero NULL o no hay espacio] - (0) si esta todo Ok
  *
  */
-int imprimirServicios(eServicio* servicios, int tam);
+int servicios_imprimirLista(eServicio* servicios, int tam);
 
 /** \brief Imprime 1 servicio de la lista de bicicletas
  *
  * \param un eColor
  *
  */
-void mostrarServicio(eServicio servicio);
+void servicios_imprimirItem(eServicio servicio);
 
 /** \brief Encuentra un servicio por ID retornando su indice en el array
  *
@@ -33,7 +34,7 @@ void mostrarServicio(eServicio servicio);
  * o servicio no encontrado]
  *
  */
-int econtrarServicioPorID(eServicio* lista, int tam, int id);
+int servicios_buscarPorID(eServicio* lista, int tam, int id);
 
 /** \brief Carga en una cadena de caracteres el nombre del servicio
  *
@@ -44,6 +45,11 @@ int econtrarServicioPorID(eServicio* lista, int tam, int id);
  * \return int Retorna (-1) si hay un error [Longitud invalida o puntero NULL] - (0) si esta todo Ok
  *
  */
-int cargarDescServ(eServicio* lista, int tam, int ID, char* descripcion);
+int servicios_cargarDesc(
+    eServicio* lista,
+    int tam,
+    int ID,
+    char* descripcion
+);
 
 #endif // ESERVICIO_H_INCLUDED

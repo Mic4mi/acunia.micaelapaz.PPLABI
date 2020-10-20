@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1603208665 source:c:\users\micae\onedrive\escritorio\utn\prog & lab\parciales\parcial-laboratorio1\ebicicleta.c
+1603213275 source:c:\users\micae\onedrive\escritorio\utn\prog & lab\parciales\parcial-laboratorio1\ebicicleta.c
 	<stdio.h>
 	<stdlib.h>
 	<ctype.h>
@@ -10,11 +10,11 @@
 	"eBicicleta.h"
 	"validaciones.h"
 
-1603206811 c:\users\micae\onedrive\escritorio\utn\prog & lab\parciales\parcial-laboratorio1\ebicicleta.h
+1603213082 c:\users\micae\onedrive\escritorio\utn\prog & lab\parciales\parcial-laboratorio1\ebicicleta.h
 	"eColor.h"
 	"eTipo.h"
 
-1603209538 source:c:\users\micae\onedrive\escritorio\utn\prog & lab\parciales\parcial-laboratorio1\main.c
+1603213649 source:c:\users\micae\onedrive\escritorio\utn\prog & lab\parciales\parcial-laboratorio1\main.c
 	<stdio.h>
 	<stdlib.h>
 	<ctype.h>
@@ -31,9 +31,9 @@
 
 1603160868 c:\users\micae\onedrive\escritorio\utn\prog & lab\parciales\parcial-laboratorio1\etipo.h
 
-1603160868 c:\users\micae\onedrive\escritorio\utn\prog & lab\parciales\parcial-laboratorio1\ecolor.h
+1603214068 c:\users\micae\onedrive\escritorio\utn\prog & lab\parciales\parcial-laboratorio1\ecolor.h
 
-1603161183 c:\users\micae\onedrive\escritorio\utn\prog & lab\parciales\parcial-laboratorio1\eservicio.h
+1603214021 c:\users\micae\onedrive\escritorio\utn\prog & lab\parciales\parcial-laboratorio1\eservicio.h
 
 1603207994 c:\users\micae\onedrive\escritorio\utn\prog & lab\parciales\parcial-laboratorio1\etrabajo.h
 	"eFecha.h"
@@ -42,7 +42,7 @@
 
 1603077910 c:\users\micae\onedrive\escritorio\utn\prog & lab\parciales\parcial-laboratorio1\datastore.h
 
-1603164488 source:c:\users\micae\onedrive\escritorio\utn\prog & lab\parciales\parcial-laboratorio1\ecolor.c
+1603213268 source:c:\users\micae\onedrive\escritorio\utn\prog & lab\parciales\parcial-laboratorio1\ecolor.c
 	<stdio.h>
 	<stdlib.h>
 	<ctype.h>
@@ -56,7 +56,7 @@
 	<string.h>
 	"eTipo.h"
 
-1603208546 source:c:\users\micae\onedrive\escritorio\utn\prog & lab\parciales\parcial-laboratorio1\etrabajo.c
+1603213829 source:c:\users\micae\onedrive\escritorio\utn\prog & lab\parciales\parcial-laboratorio1\etrabajo.c
 	<stdio.h>
 	<stdlib.h>
 	<ctype.h>
@@ -65,7 +65,7 @@
 	"eTrabajo.h"
 	"validaciones.h"
 
-1603164532 source:c:\users\micae\onedrive\escritorio\utn\prog & lab\parciales\parcial-laboratorio1\eservicio.c
+1603214021 source:c:\users\micae\onedrive\escritorio\utn\prog & lab\parciales\parcial-laboratorio1\eservicio.c
 	<stdio.h>
 	<stdlib.h>
 	<ctype.h>

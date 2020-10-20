@@ -157,7 +157,7 @@ int main()
             case 5:
                 //listar colores
                 system("cls");
-                imprimirColores(listaColores, TAM_COLORES);
+                colores_imprimirLista(listaColores, TAM_COLORES);
                 break;
             case 6:
                 //listar tipos
@@ -167,7 +167,7 @@ int main()
             case 7:
                 //LISTAR SERVICIOS
                 system("cls");
-                imprimirServicios(listaServicios, TAM_SERVICIOS);
+                servicios_imprimirLista(listaServicios, TAM_SERVICIOS);
                 break;
             case 8:
                 if(trabajos_agregar(

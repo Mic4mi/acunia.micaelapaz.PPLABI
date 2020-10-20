@@ -69,11 +69,11 @@ int trabajos_agregar(
                 }
                 system("cls");
                 printf("\n Ingrese ID del servicio realizado en el nuevo trabajo\n");
-                imprimirServicios(listaServicios, tamServicios);
+                servicios_imprimirLista(listaServicios, tamServicios);
                 printf("\n Ingrese ID del servicio: ");
                 fflush(stdin);
                 scanf("%d", &nuevoTrabajo.idServicio);
-                servIDValido = econtrarServicioPorID(
+                servIDValido = servicios_buscarPorID(
                                    listaServicios,
                                    tamServicios,
                                    nuevoTrabajo.idServicio
@@ -83,7 +83,7 @@ int trabajos_agregar(
                     printf("\n Dato invalido. Ingrese ID tipo: ");
                     fflush(stdin);
                     scanf("%d", &nuevoTrabajo.idServicio);
-                    servIDValido = econtrarServicioPorID(
+                    servIDValido = servicios_buscarPorID(
                                        listaServicios,
                                        tamServicios,
                                        nuevoTrabajo.idServicio
@@ -192,7 +192,7 @@ void trabajos_imprimirItem(
     char descServ[30];
     char descMarcaBici[30];
 
-    cargarDescServ(servicios, tamServicios, trabajo.idServicio, descServ);
+    servicios_cargarDesc(servicios, tamServicios, trabajo.idServicio, descServ);
     bicicletas_cargarDescMarca(bicicletas, tamBicis, trabajo.idBicicleta, descMarcaBici);
 
     printf("  %5d %15s               %15s                    %0d/%0d/%d\n",

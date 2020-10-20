@@ -4,7 +4,7 @@
 #include <string.h>
 #include "eServicio.h"
 
-int imprimirServicios(eServicio* servicios, int tam)
+int servicios_imprimirLista(eServicio* servicios, int tam)
 {
     int error = -1;
     if(servicios != NULL && tam > 0)
@@ -16,7 +16,7 @@ int imprimirServicios(eServicio* servicios, int tam)
         printf("_________________________________________________\n");
         for(int i = 0; i < tam; i++)
         {
-            mostrarServicio(servicios[i]);
+            servicios_imprimirItem(servicios[i]);
         }
         printf("\n\n");
         error = 0;
@@ -24,12 +24,16 @@ int imprimirServicios(eServicio* servicios, int tam)
     return error;
 }
 
-void mostrarServicio(eServicio servicio)
+void servicios_imprimirItem(eServicio servicio)
 {
-    printf("  %d    %15s            $%4.2f\n", servicio.id, servicio.descripcion, servicio.precio);
+    printf("  %d    %15s            $%4.2f\n",
+           servicio.id,
+           servicio.descripcion,
+           servicio.precio
+          );
 }
 
-int econtrarServicioPorID(eServicio* lista, int tam, int id)
+int servicios_buscarPorID(eServicio* lista, int tam, int id)
 {
     int indiceId = -1;
     if(lista != NULL && tam > 0 && tam <= 100)
@@ -46,7 +50,12 @@ int econtrarServicioPorID(eServicio* lista, int tam, int id)
     return indiceId;
 }
 
-int cargarDescServ(eServicio* lista, int tam, int ID, char* descripcion)
+int servicios_cargarDesc(
+    eServicio* lista,
+    int tam,
+    int ID,
+    char* descripcion
+)
 {
     int error = -1;
 

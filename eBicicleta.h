@@ -48,7 +48,7 @@ int bicicletas_buscarPorID(eBicicleta* lista, int tam, int id);
  * \return int Retorna (-1) si hay un error [Longitud invalida o puntero NULL] -
  * (int) entero que indica la cantidad de eBicicletas cargadas si esta todo Ok
  */
-int bicicletas_hardcodear(eBicicleta* lista, int tam, int numberoDeBicis);
+int bicicletas_hardcodear(eBicicleta* lista, int tam, int numeroDeBicis);
 
 /** \brief añade en una lista existente de bicicletas los valores
  * recibidos como parametros en la primera posición que encuentra libre

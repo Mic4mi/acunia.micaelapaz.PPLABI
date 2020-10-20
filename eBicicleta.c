@@ -60,16 +60,16 @@ int bicicletas_buscarPorID(eBicicleta* lista, int tam, int id)
 }
 
 
-int bicicletas_hardcodear(eBicicleta* lista, int tam, int numberoDeBicis)
+int bicicletas_hardcodear(eBicicleta* lista, int tam, int numeroDeBicis)
 {
     int returns = -1;
     if(
         lista != NULL &&
         tam > 0 &&
-        numberoDeBicis > 0 &&
-        numberoDeBicis < tam)
+        numeroDeBicis > 0 &&
+        numeroDeBicis < tam)
     {
-        for(int i = 0; i < numberoDeBicis; i++)
+        for(int i = 0; i < numeroDeBicis; i++)
         {
             if(lista[i].estaVacio == 1)
             {
@@ -139,7 +139,7 @@ void bicicletas_imprimirItem(
 
     cargarDescTipo(tipos, tamTipos, bici.idTipo, descTipo);
 
-    cargarNombre(colores, tamColores, bici.idColor, descColor);
+    colores_cargarNombre(colores, tamColores, bici.idColor, descColor);
 
     printf("%5d %15s           %15s           %15s                    %4.2f\n",
            bici.id,
@@ -219,11 +219,11 @@ int bicicletas_agregar(
                 //color
                 system("cls");
                 printf("\n Ingrese ID color para la nueva bicicleta\n");
-                imprimirColores(listaColores, tamColores);
+                colores_imprimirLista(listaColores, tamColores);
                 printf("\nIngrese ID: ");
                 fflush(stdin);
                 scanf("%d", &nuevaBici.idColor);
-                colorIDValido = encontrarColorPorID(
+                colorIDValido = colores_buscarPorID(
                                     listaColores,
                                     tamColores,
                                     nuevaBici.idColor
@@ -233,7 +233,7 @@ int bicicletas_agregar(
                     printf("\n Dato invalido. Ingrese ID color: ");
                     fflush(stdin);
                     scanf("%d", &nuevaBici.idColor);
-                    colorIDValido = encontrarColorPorID(
+                    colorIDValido = colores_buscarPorID(
                                         listaColores,
                                         tamColores,
                                         nuevaBici.idColor

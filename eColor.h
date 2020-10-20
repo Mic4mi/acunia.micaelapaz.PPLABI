@@ -1,10 +1,11 @@
 #ifndef ECOLOR_H_INCLUDED
 #define ECOLOR_H_INCLUDED
 
-typedef struct{
+typedef struct
+{
     int id; // comienza en 5000
     char nombreColor[21];
-}eColor;
+} eColor;
 
 /** \brief Imprime el contenido del array de colores
  *
@@ -13,14 +14,14 @@ typedef struct{
  * \return int Retorna (-1) si hay un Error [longitud invalida o puntero NULL o no hay espacio] - (0) si esta todo Ok
  *
  */
-int imprimirColores(eColor* colores, int tam);
+int colores_imprimirLista(eColor* colores, int tam);
 
 /** \brief Imprime 1 color de la lista de bicicletas
  *
  * \param un eColor
  *
  */
-void mostrarColor(eColor color);
+void colores_imprimirItem(eColor color);
 
 /** \brief Encuentra un color por ID retornando su indice en el array
  *
@@ -31,7 +32,7 @@ void mostrarColor(eColor color);
  * o color no encontrado]
  *
  */
-int encontrarColorPorID(eColor* lista, int tam, int id);
+int colores_buscarPorID(eColor* lista, int tam, int id);
 
 /** \brief Carga en una cadena de caracteres el nombre del color
  *
@@ -42,6 +43,11 @@ int encontrarColorPorID(eColor* lista, int tam, int id);
  * \return int Retorna (-1) si hay un error [Longitud invalida o puntero NULL] - (0) si esta todo Ok
  *
  */
-int cargarNombre(eColor* lista, int tam, int ID, char* nombre);
+int colores_cargarNombre(
+    eColor* lista,
+    int tam,
+    int ID,
+    char* nombre
+);
 
 #endif // ECOLOR_H_INCLUDED

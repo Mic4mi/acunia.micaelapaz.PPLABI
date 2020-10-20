@@ -5,7 +5,7 @@
 #include "eColor.h"
 
 
-int imprimirColores(eColor* colores, int tam)
+int colores_imprimirLista(eColor* colores, int tam)
 {
     int error = -1;
     if(colores != NULL && tam > 0)
@@ -17,7 +17,7 @@ int imprimirColores(eColor* colores, int tam)
         printf("___________________________________________\n");
         for(int i = 0; i < tam; i++)
         {
-            mostrarColor(colores[i]);
+            colores_imprimirItem(colores[i]);
         }
         printf("\n\n");
         error = 0;
@@ -25,12 +25,12 @@ int imprimirColores(eColor* colores, int tam)
     return error;
 }
 
-void mostrarColor(eColor color)
+void colores_imprimirItem(eColor color)
 {
     printf("  %d    %20s\n", color.id, color.nombreColor);
 }
 
-int encontrarColorPorID(eColor* lista, int tam, int id)
+int colores_buscarPorID(eColor* lista, int tam, int id)
 {
     int indiceId = -1;
     if(lista != NULL && tam > 0 && tam <= 100)
@@ -47,7 +47,12 @@ int encontrarColorPorID(eColor* lista, int tam, int id)
     return indiceId;
 }
 
-int cargarNombre(eColor* lista, int tam, int ID, char* nombre)
+int colores_cargarNombre(
+    eColor* lista,
+    int tam,
+    int ID,
+    char* nombre
+)
 {
     int error = -1;
 
