@@ -568,19 +568,13 @@ int bicicletas_ordenarPorTipoYRodado(
 {
     int error = -1;
     eBicicleta auxBici;
-    //char descripcionTipoI[30];
-    //char descripcionTipoJ[30];
 
     if(lista != NULL && tam > 0 && tipos != NULL && tamTipos > 0)
     {
         for(int i = 0; i < tam-1; i++)
         {
-            //tipos_cargarDesc(tipos, tamTipos, lista[i].idTipo, descripcionTipoI);
-
             for(int j = i + 1; j < tam; j++)
             {
-                //tipos_cargarDesc(tipos, tamTipos, lista[j].idTipo, descripcionTipoJ);
-
                 if(lista[i].idTipo > lista[j].idTipo)
                 {
                     auxBici = lista[i];

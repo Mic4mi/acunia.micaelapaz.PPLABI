@@ -2,29 +2,9 @@
 <CodeBlocks_layout_file>
 	<FileVersion major="1" minor="0" />
 	<ActiveTarget name="Debug" />
-	<File name="eTrabajo.c" open="0" top="0" tabpos="12" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="3594" topLine="7" />
-		</Cursor>
-	</File>
 	<File name="eTipo.h" open="0" top="0" tabpos="10" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="1198" topLine="28" />
-		</Cursor>
-	</File>
-	<File name="eServicio.c" open="1" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="301" topLine="12" />
-		</Cursor>
-	</File>
-	<File name="eBicicleta.c" open="1" top="1" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="1300" topLine="203" />
-		</Cursor>
-	</File>
-	<File name="eServicio.h" open="0" top="0" tabpos="8" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="439" topLine="0" />
+			<Cursor1 position="1218" topLine="0" />
 		</Cursor>
 	</File>
 	<File name="dataStore.h" open="0" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
@@ -32,49 +12,69 @@
 			<Cursor1 position="260" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="eTipo.c" open="1" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="eTrabajo.c" open="0" top="0" tabpos="12" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="1498" topLine="43" />
+			<Cursor1 position="8054" topLine="185" />
 		</Cursor>
 	</File>
-	<File name="dataStore.c" open="0" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="eBicicleta.h" open="0" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="376" topLine="0" />
+			<Cursor1 position="2037" topLine="61" />
+		</Cursor>
+	</File>
+	<File name="eServicio.c" open="0" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="967" topLine="0" />
 		</Cursor>
 	</File>
 	<File name="eColor.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="896" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="eBicicleta.h" open="1" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="4652" topLine="24" />
+			<Cursor1 position="1322" topLine="35" />
 		</Cursor>
 	</File>
 	<File name="main.c" open="1" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="5202" topLine="131" />
+			<Cursor1 position="1343" topLine="21" />
 		</Cursor>
 	</File>
 	<File name="validaciones.c" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="859" topLine="33" />
+			<Cursor1 position="916" topLine="10" />
+		</Cursor>
+	</File>
+	<File name="eBicicleta.c" open="1" top="1" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="22529" topLine="567" />
+		</Cursor>
+	</File>
+	<File name="dataStore.c" open="0" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="259" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="eTipo.c" open="0" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1223" topLine="35" />
 		</Cursor>
 	</File>
 	<File name="eTrabajo.h" open="0" top="0" tabpos="13" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="2641" topLine="42" />
+			<Cursor1 position="1757" topLine="78" />
 		</Cursor>
 	</File>
-	<File name="eColor.c" open="1" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="eColor.c" open="0" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="320" topLine="27" />
+			<Cursor1 position="1389" topLine="43" />
 		</Cursor>
 	</File>
 	<File name="validaciones.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="610" topLine="0" />
+			<Cursor1 position="656" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="eServicio.h" open="0" top="0" tabpos="8" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1439" topLine="37" />
 		</Cursor>
 	</File>
 </CodeBlocks_layout_file>
