@@ -49,8 +49,8 @@ int main()
     int bicicletas_IDActual = INICIAR_ID_BICI;
     int trabajos_IDActual = INICIAR_ID_TRABAJO;
 
-    int opcMenu;
-    int opcSelect;
+    int menuPrincipal;
+    int menuPrincipal_opcionSeleccionada;
 
     int bicicletas_resultadoHardcodeo;
     int trabajos_resultadoHardcodeo;
@@ -64,16 +64,22 @@ int main()
     bicicletas_resultadoHardcodeo = bicicletas_hardcodear(listaBicicletas, TAM_BICI, 5);
     trabajos_resultadoHardcodeo = trabajos_hardcodear(listaTrabajos, TAM_TRABAJOS, 5);
 
-    trabajos_IDActual += trabajos_resultadoHardcodeo + 1;
     bicicletas_IDActual += bicicletas_resultadoHardcodeo + 1;
+    trabajos_IDActual += trabajos_resultadoHardcodeo + 1;
 
     do
     {
         bicicletas_menuPrincipal();
-        opcMenu = validaciones_obtenerOpcion(&opcSelect, "\nOpcion invalida, intente nuevamente\n", 1, 10);
-        if(!opcMenu)
+        menuPrincipal = validaciones_obtenerOpcion
+                        (
+                            &menuPrincipal_opcionSeleccionada,
+                            "\nOpcion invalida, intente nuevamente\n",
+                            1,
+                            10
+                        );
+        if(!menuPrincipal)
         {
-            switch(opcSelect)
+            switch(menuPrincipal_opcionSeleccionada)
             {
             case 1:
                 if(bicicletas_agregar(
@@ -144,7 +150,8 @@ int main()
                     listaBicicletas,
                     TAM_BICI,
                     listaTipos,
-                    TAM_TIPOS);
+                    TAM_TIPOS
+                );
                 bicicletas_imprimirLista(
                     listaBicicletas,
                     TAM_BICI,
@@ -199,7 +206,8 @@ int main()
                     listaBicicletas,
                     TAM_BICI,
                     listaServicios,
-                    TAM_SERVICIOS);
+                    TAM_SERVICIOS
+                );
                 break;
             case 10:
                 printf("Saliendo...\n");
@@ -208,7 +216,7 @@ int main()
             system("pause");
         }
     }
-    while(opcSelect != 10);
+    while(menuPrincipal_opcionSeleccionada != 10);
 
     return 0;
 }

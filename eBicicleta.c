@@ -587,7 +587,7 @@ int bicicletas_ordenarPorTipoYRodado(
                     lista[i] = lista[j];
                     lista[j] = auxBici;
                 }
-                else if(strcmp(descripcionTipoI, descripcionTipoJ) == 0 && lista[i].rodado < lista[j].rodado)
+                else if(strcmp(descripcionTipoI, descripcionTipoJ) == 0 && lista[i].rodado > lista[j].rodado)
                 {
                     auxBici = lista[i];
                     lista[i] = lista[j];
