@@ -195,6 +195,10 @@ int bicicletas_agregar(
                 }
                 //tipo
                 system("cls");
+                printf("_________________________________________________________________________________________________________\n");
+                printf("                                            AGREGAR BICICLETA     \n");
+                printf("_________________________________________________________________________________________________________\n");
+
                 printf("\n Ingrese ID tipo para la nueva bicicleta\n");
                 tipos_imprimirLista(listaTipos, tamTipos);
                 printf("\nIngrese ID: ");
@@ -218,6 +222,9 @@ int bicicletas_agregar(
                 }
                 //color
                 system("cls");
+                printf("_________________________________________________________________________________________________________\n");
+                printf("                                            AGREGAR BICICLETA     \n");
+                printf("_________________________________________________________________________________________________________\n");
                 printf("\n Ingrese ID color para la nueva bicicleta\n");
                 colores_imprimirLista(listaColores, tamColores);
                 printf("\nIngrese ID: ");
@@ -241,6 +248,10 @@ int bicicletas_agregar(
                 }
                 //rodado
                 system("cls");
+                system("cls");
+                printf("_________________________________________________________________________________________________________\n");
+                printf("                                            AGREGAR BICICLETA     \n");
+                printf("_________________________________________________________________________________________________________\n");
                 printf("RODADOS:\n- 20\n- 26\n- 27.5\n- 29\n");
                 printf("\nIngrese rodado para la nueva bicicleta: ");
                 fflush(stdin);
@@ -317,7 +328,9 @@ int bicicletas_modificar(
         {
             system("cls");
             printf("_________________________________________________________________________________________________________\n");
-            printf("                                                BICICLETAS      \n");
+            printf("                                     BIENVENIDO AL MENU DE MODIFICACIONES                                  \n");
+            printf("_________________________________________________________________________________________________________\n");
+            printf("                                            BICICLETA SELECCIONADA      \n");
             printf("_________________________________________________________________________________________________________\n");
             printf("  ID            MARCA                      TIPO                     COLOR                    RODADO      \n");
             printf("_________________________________________________________________________________________________________\n");
@@ -327,9 +340,10 @@ int bicicletas_modificar(
                 tamTipo,
                 listaColor,
                 tamColor);
-            printf("\nMODIFICAR:\n");
-            printf("1. Tipo\n");
-            printf("2. Rodado\n");
+            printf("_________________________________________________________________________________________________________\n");
+            printf("\n   MODIFICAR:\n");
+            printf("   1. Tipo\n");
+            printf("   2. Rodado\n");
             rst = validaciones_obtenerOpcion(&mOpcion, "\nOpcion invalida\n", 1, 2);
             if(!rst)
             {
@@ -338,6 +352,9 @@ int bicicletas_modificar(
                 case 1:
                     //Pedir tipo
                     system("cls");
+                    printf("_________________________________________________________________________________________________________\n");
+                    printf("                                     BIENVENIDO AL MENU DE MODIFICACIONES                                  \n");
+                    printf("_________________________________________________________________________________________________________\n");
                     printf("\n Ingrese un ID tipo nuevo\n");
                     tipos_imprimirLista(listaTipo, tamTipo);
                     printf("\nIngrese ID: ");
@@ -382,6 +399,9 @@ int bicicletas_modificar(
                 case 2:
                     //pedir rodado
                     system("cls");
+                    printf("_________________________________________________________________________________________________________\n");
+                    printf("                                     BIENVENIDO AL MENU DE MODIFICACIONES                                  \n");
+                    printf("_________________________________________________________________________________________________________\n");
                     printf("RODADOS:\n- 20\n- 26\n- 27.5\n- 29\n");
                     printf("\nIngrese rodado nuevo: ");
                     fflush(stdin);
@@ -450,6 +470,8 @@ int bicicletas_eliminar(
         listaTipo != NULL &&
         tamTipo > 0)
     {
+        printf("_________________________________________________________________________________________________________\n");
+        printf("                                            ELIMINAR BICICLETA                                          \n");
         bicicletas_imprimirLista(
             lista,
             tam,
@@ -464,13 +486,18 @@ int bicicletas_eliminar(
         if(index == -1)
         {
             system("cls");
+            printf("_________________________________________________________________________________________________________\n");
+            printf("                                          ELIMINAR BICICLETA                                          \n");
+            printf("_________________________________________________________________________________________________________\n");
             printf("No hay bicicletas con ese ID\n");
         }
         else
         {
             system("cls");
             printf("_________________________________________________________________________________________________________\n");
-            printf("                                                BICICLETAS      \n");
+            printf("                                          ELIMINAR BICICLETA                                          \n");
+            printf("_________________________________________________________________________________________________________\n");
+            printf("                                        BICICLETA SELECCIONADA     \n");
             printf("_________________________________________________________________________________________________________\n");
             printf("  ID            MARCA                      TIPO                     COLOR                    RODADO      \n");
             printf("_________________________________________________________________________________________________________\n");
@@ -480,7 +507,8 @@ int bicicletas_eliminar(
                 tamTipo,
                 listaColor,
                 tamColor);
-            printf("Confirmar baja? s - si; n - no\n");
+            printf("_________________________________________________________________________________________________________\n");
+            printf("\n Confirmar baja? s - si; n - no\n");
             fflush(stdin);
             scanf("%c", &confirmacion);
             confirmacion = tolower(confirmacion);
@@ -559,9 +587,7 @@ int bicicletas_ordenarPorTipoYRodado(
                     lista[i] = lista[j];
                     lista[j] = auxBici;
                 }
-                else if(
-                    strcmp(descripcionTipoI, descripcionTipoJ) == 0 &&
-                    lista[i].rodado > lista[j].rodado)
+                else if(strcmp(descripcionTipoI, descripcionTipoJ) == 0 && lista[i].rodado < lista[j].rodado)
                 {
                     auxBici = lista[i];
                     lista[i] = lista[j];

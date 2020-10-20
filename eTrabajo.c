@@ -31,8 +31,8 @@ int trabajos_agregar(
     {
         system("cls");
         printf("_________________________________________________________________________________________________________\n");
-        printf("                                            AGREGAR TRABAJO     \n");
-
+        printf("                                            AGREGAR TRABAJO                                              \n");
+        printf("_________________________________________________________________________________________________________\n");
         for(int i = 0; i < tam; i++)
         {
             if(lista[i].estaVacio == 1)
@@ -40,6 +40,9 @@ int trabajos_agregar(
                 nuevoTrabajo.estaVacio = 0;
                 nuevoTrabajo.id = ID;
                 system("cls");
+                printf("_________________________________________________________________________________________________________\n");
+                printf("                                            AGREGAR TRABAJO                                              \n");
+                printf("_________________________________________________________________________________________________________\n");
                 printf("\n Ingrese ID de la Bicicleta del nuevo trabajo\n");
                 bicicletas_imprimirLista(
                     listaBicis,
@@ -68,6 +71,9 @@ int trabajos_agregar(
                                    );
                 }
                 system("cls");
+                printf("_________________________________________________________________________________________________________\n");
+                printf("                                            AGREGAR TRABAJO                                              \n");
+                printf("_________________________________________________________________________________________________________\n");
                 printf("\n Ingrese ID del servicio realizado en el nuevo trabajo\n");
                 servicios_imprimirLista(listaServicios, tamServicios);
                 printf("\n Ingrese ID del servicio: ");
@@ -91,6 +97,9 @@ int trabajos_agregar(
                 }
                 //Pedir fecha
                 system("cls");
+                printf("_________________________________________________________________________________________________________\n");
+                printf("                                            AGREGAR TRABAJO                                              \n");
+                printf("_________________________________________________________________________________________________________\n");
                 printf("\n Ingrese fecha dd/mm/aaaa: ");
                 fflush(stdin);
                 scanf("%d/%d/%d",
@@ -159,7 +168,7 @@ int trabajos_imprimirLista(
     {
         //system("cls");
         printf("_________________________________________________________________________________________________________\n");
-        printf("                                                 TRABAJOS      \n");
+        printf("                                                TRABAJOS      \n");
         printf("_________________________________________________________________________________________________________\n");
         printf("  ID            SERVICIO                      BICICLETA                     FECHA      \n");
         printf("_________________________________________________________________________________________________________\n");
