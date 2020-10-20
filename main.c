@@ -9,6 +9,7 @@
 #include "eServicio.h"
 #include "eTrabajo.h"
 #include "validaciones.h"
+
 #define TAM_BICI 10
 #define TAM_TRABAJOS 10
 #define TAM_COLORES 5
@@ -20,22 +21,8 @@
 
 int main()
 {
-    int opcMenu;
-    int opcSelect;
-    int hardcodeResult;
-    int hardcodeResultTrab;
-    int actualIDBicis = INICIAR_ID_BICI;
-    int actualIDTrabajos = INICIAR_ID_TRABAJO;
     eBicicleta listaBicicletas[TAM_BICI];
-    int agregarNuevaBici;
-    //case 2
-    int modifBici;
-    //case 3
-    int elimBici;
-    int altaTrabajos;
-    //Trabajos
     eTrabajo listaTrabajos[TAM_TRABAJOS];
-    //Tipos, colores y servicios
     eTipo tiposDeBicis[TAM_TIPOS] =
     {
         {1000, "Rutera"},
@@ -59,12 +46,29 @@ int main()
         {20003, "Cadena", 350},
     };
 
+    int actualIDBicis = INICIAR_ID_BICI;
+    int actualIDTrabajos = INICIAR_ID_TRABAJO;
+
+    int opcMenu;
+    int opcSelect;
+
+    int hardcodeResult;
+    int hardcodeResultTrab;
+
+    int agregarNuevaBici;
+    int modifBici;
+    int elimBici;
+    int altaTrabajos;
+
     iniciarBicicletas(listaBicicletas, TAM_BICI);
     iniciarTrabajos(listaTrabajos, TAM_TRABAJOS);
+
     hardcodeResult = hardcodearBicicletas(listaBicicletas, TAM_BICI, 5);
     hardcodeResultTrab = hardcodearTrabajos(listaTrabajos, TAM_TRABAJOS, 5);
+
     actualIDTrabajos += hardcodeResultTrab + 1;
     actualIDBicis += hardcodeResult + 1;
+
     do
     {
         menu();
