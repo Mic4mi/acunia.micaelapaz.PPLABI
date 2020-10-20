@@ -186,6 +186,12 @@ int agregarBicicleta(eBicicleta* lista, int tam, int ID, eTipo* listaTipos, int 
                 printf("\nIngrese rodado: ");
                 fflush(stdin);
                 scanf("%f", &nuevaBici.rodado);
+                while(nuevaBici.rodado != 20 && nuevaBici.rodado != 26 && nuevaBici.rodado != 27.5 && nuevaBici.rodado != 29)
+                {
+                    printf("\nDato Invalido. Ingrese rodado: ");
+                    fflush(stdin);
+                    scanf("%f", &nuevaBici.rodado);
+                }
 
                 lista[i] = nuevaBici;
                 return 0;
@@ -282,7 +288,15 @@ int modificarBicicleta(eBicicleta* lista, int tam, eTipo* listaTipo, int tamTipo
                 case 2:
                     //pedir rodado
                     printf("\nIngrese nuevo rodado: ");
+                    fflush(stdin);
                     scanf("%f", &nuevaBici.rodado);
+                    while(nuevaBici.rodado != 20 && nuevaBici.rodado != 26 && nuevaBici.rodado != 27.5 && nuevaBici.rodado != 29)
+                    {
+                        printf("\nDato Invalido. Ingrese nuevo rodado: ");
+                        fflush(stdin);
+                        scanf("%f", &nuevaBici.rodado);
+                    }
+
                     printf("\nRodado anterior: %.2f", lista[index].rodado);
                     printf("\nRodado nuev0: %.2f", nuevaBici.rodado);
                     //confirmar modificacion
