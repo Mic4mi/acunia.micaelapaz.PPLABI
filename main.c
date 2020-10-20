@@ -23,14 +23,14 @@ int main()
 {
     eBicicleta listaBicicletas[TAM_BICI];
     eTrabajo listaTrabajos[TAM_TRABAJOS];
-    eTipo tiposDeBicis[TAM_TIPOS] =
+    eTipo listaTipos[TAM_TIPOS] =
     {
         {1000, "Rutera"},
         {1001, "Carrera"},
         {1002, "Mountain"},
         {1003, "BMX"}
     };
-    eColor coloresDeBicis[TAM_COLORES] =
+    eColor listaColores[TAM_COLORES] =
     {
         {5000, "Gris"},
         {5001, "Negro"},
@@ -38,7 +38,7 @@ int main()
         {5003, "Azul"},
         {5004, "Rojo"}
     };
-    eServicio servicios[] =
+    eServicio listaServicios[TAM_SERVICIOS] =
     {
         {20000, "Limpieza", 250},
         {20001, "Parche", 300},
@@ -46,26 +46,26 @@ int main()
         {20003, "Cadena", 350},
     };
 
-    int actualIDBicis = INICIAR_ID_BICI;
-    int actualIDTrabajos = INICIAR_ID_TRABAJO;
+    int bicicletas_IDActual = INICIAR_ID_BICI;
+    int trabajos_IDActual = INICIAR_ID_TRABAJO;
 
     int opcMenu;
     int opcSelect;
 
-    int hardcodeResult;
-    int hardcodeResultTrab;
+    int bicicletas_resultadoHardcodeo;
+    int trabajos_resultadoHardcodeo;
 
-    int modifBici;
-    int elimBici;
+    int modificarBicicleta;
+    int eliminarBicicleta;
 
     bicicletas_inicializar(listaBicicletas, TAM_BICI);
     trabajos_inicializar(listaTrabajos, TAM_TRABAJOS);
 
-    hardcodeResult = bicicletas_hardcodear(listaBicicletas, TAM_BICI, 5);
-    hardcodeResultTrab = trabajos_hardcodear(listaTrabajos, TAM_TRABAJOS, 5);
+    bicicletas_resultadoHardcodeo = bicicletas_hardcodear(listaBicicletas, TAM_BICI, 5);
+    trabajos_resultadoHardcodeo = trabajos_hardcodear(listaTrabajos, TAM_TRABAJOS, 5);
 
-    actualIDTrabajos += hardcodeResultTrab + 1;
-    actualIDBicis += hardcodeResult + 1;
+    trabajos_IDActual += trabajos_resultadoHardcodeo + 1;
+    bicicletas_IDActual += bicicletas_resultadoHardcodeo + 1;
 
     do
     {
@@ -76,23 +76,37 @@ int main()
             switch(opcSelect)
             {
             case 1:
-                if(bicicletas_agregar(listaBicicletas, TAM_BICI, actualIDBicis, tiposDeBicis, TAM_TIPOS, coloresDeBicis, TAM_COLORES) < 0)
+                if(bicicletas_agregar(
+                            listaBicicletas,
+                            TAM_BICI,
+                            bicicletas_IDActual,
+                            listaTipos,
+                            TAM_TIPOS,
+                            listaColores,
+                            TAM_COLORES) < 0)
                 {
                     printf("\nHa ocurrido un problema. Intente nuevamente.\n");
                 }
                 else
                 {
                     printf("\nOperacion exitosa\n");
-                    actualIDBicis++;
+                    bicicletas_IDActual++;
                 }
                 break;
             case 2:
-                modifBici = bicicletas_modificar(listaBicicletas, TAM_BICI, tiposDeBicis, TAM_TIPOS, coloresDeBicis, TAM_COLORES);
-                if(!modifBici)
+                modificarBicicleta = bicicletas_modificar(
+                                         listaBicicletas,
+                                         TAM_BICI,
+                                         listaTipos,
+                                         TAM_TIPOS,
+                                         listaColores,
+                                         TAM_COLORES
+                                     );
+                if(!modificarBicicleta)
                 {
                     printf("\nModificacion exitosa.\n");
                 }
-                else if(modifBici == 1)
+                else if(modificarBicicleta == 1)
                 {
                     printf("\nModificacion cancelada por usuario.\n");
                 }
@@ -103,12 +117,19 @@ int main()
                 break;
             case 3:
                 system("cls");
-                elimBici = bicicletas_eliminar(listaBicicletas, TAM_BICI, tiposDeBicis, TAM_TIPOS, coloresDeBicis, TAM_COLORES);
-                if(!elimBici)
+                eliminarBicicleta = bicicletas_eliminar(
+                                        listaBicicletas,
+                                        TAM_BICI,
+                                        listaTipos,
+                                        TAM_TIPOS,
+                                        listaColores,
+                                        TAM_COLORES
+                                    );
+                if(!eliminarBicicleta)
                 {
                     printf("\nBaja exitosa.\n");
                 }
-                else if(elimBici == 1)
+                else if(eliminarBicicleta == 1)
                 {
                     printf("\nBaja cancelada por usuario.\n");
                 }
@@ -119,36 +140,47 @@ int main()
                 break;
             case 4:
                 system("cls");
-                bicicletas_ordenarPorTipoYRodado(listaBicicletas, TAM_BICI, tiposDeBicis, TAM_TIPOS);
-                bicicletas_imprimirLista(listaBicicletas, TAM_BICI, tiposDeBicis, TAM_TIPOS, coloresDeBicis, TAM_COLORES);
+                bicicletas_ordenarPorTipoYRodado(
+                    listaBicicletas,
+                    TAM_BICI,
+                    listaTipos,
+                    TAM_TIPOS);
+                bicicletas_imprimirLista(
+                    listaBicicletas,
+                    TAM_BICI,
+                    listaTipos,
+                    TAM_TIPOS,
+                    listaColores,
+                    TAM_COLORES
+                );
                 break;
             case 5:
                 //listar colores
                 system("cls");
-                imprimirColores(coloresDeBicis, TAM_COLORES);
+                imprimirColores(listaColores, TAM_COLORES);
                 break;
             case 6:
                 //listar tipos
                 system("cls");
-                imprimirTipos(tiposDeBicis, TAM_TIPOS);
+                imprimirTipos(listaTipos, TAM_TIPOS);
                 break;
             case 7:
                 //LISTAR SERVICIOS
                 system("cls");
-                imprimirServicios(servicios, TAM_SERVICIOS);
+                imprimirServicios(listaServicios, TAM_SERVICIOS);
                 break;
             case 8:
                 if(trabajos_agregar(
                             listaTrabajos,
                             TAM_TRABAJOS,
-                            actualIDTrabajos,
+                            trabajos_IDActual,
                             listaBicicletas,
                             TAM_BICI,
-                            servicios,
+                            listaServicios,
                             TAM_SERVICIOS,
-                            tiposDeBicis,
+                            listaTipos,
                             TAM_TIPOS,
-                            coloresDeBicis,
+                            listaColores,
                             TAM_COLORES) < 0)
                 {
                     printf("\nHa ocurrido un problema. Intente nuevamente.\n");
@@ -156,7 +188,7 @@ int main()
                 else
                 {
                     printf("\nOperacion exitosa\n");
-                    actualIDTrabajos++;
+                    trabajos_IDActual++;
                 }
                 break;
             case 9:
@@ -166,7 +198,7 @@ int main()
                     TAM_TRABAJOS,
                     listaBicicletas,
                     TAM_BICI,
-                    servicios,
+                    listaServicios,
                     TAM_SERVICIOS);
                 break;
             case 10:
