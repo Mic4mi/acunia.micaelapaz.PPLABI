@@ -16,6 +16,10 @@ int altaTrabajo(eTrabajo* lista, int tam, int ID, eBicicleta* listaBicis, int ta
     int servIDValido;
     if(lista != NULL && tam > 0 && tam <= 100 && listaBicis != NULL && tamBicis > 0 && listaServicios != NULL && tamServicios > 0)
     {
+        system("cls");
+        printf("*********************************************************************************************************\n");
+        printf("                                            ANIADIR TRABAJO     \n");
+
         for(int i = 0; i < tam; i++)
         {
             if(lista[i].estaVacio == 1)

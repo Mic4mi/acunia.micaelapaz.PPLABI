@@ -10,11 +10,11 @@ int imprimirColores(eColor* colores, int tam)
     int error = -1;
     if(colores != NULL && tam > 0)
     {
-        printf("++++++++++++++++++++++++++++++++++++++++++\n");
-        printf("                COLORES\n"                   );
-        printf("------------------------------------------\n");
+        printf("___________________________________________\n");
+        printf("                 COLORES\n"                   );
+        printf("___________________________________________\n");
         printf("   ID                  NOMBRE COLOR        \n");
-        printf("++++++++++++++++++++++++++++++++++++++++++\n");
+        printf("___________________________________________\n");
         for(int i = 0; i < tam; i++)
         {
             mostrarColor(colores[i]);

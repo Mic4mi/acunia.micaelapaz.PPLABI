@@ -79,10 +79,6 @@ int main()
             {
             case 1:
                 //Cargar bici
-                system("cls");
-                printf("*********************************************************************************************************\n");
-                printf("                                            ANIADIR BICICLETA     \n");
-                printf("*********************************************************************************************************\n");
                 agregarNuevaBici = agregarBicicleta(listaBicicletas, TAM_BICI, actualIDBicis, tiposDeBicis, TAM_TIPOS, coloresDeBicis, TAM_COLORES);
                 if(agregarNuevaBici < 0)
                 {
@@ -148,9 +144,6 @@ int main()
                 break;
             case 8:
                 //alta trabajo
-                system("cls");
-                printf("*********************************************************************************************************\n");
-                printf("                                            ANIADIR TRABAJO     \n");
                 altaTrabajos = altaTrabajo(listaTrabajos, TAM_TRABAJOS, actualIDTrabajos, listaBicicletas, TAM_BICI, servicios, TAM_SERVICIOS, tiposDeBicis, TAM_TIPOS, coloresDeBicis, TAM_COLORES);
                 if(altaTrabajos < 0)
                 {

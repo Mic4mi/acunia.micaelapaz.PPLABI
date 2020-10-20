@@ -12,11 +12,11 @@
 void menu()
 {
     system("cls");
-    printf("********************************************************************************************************\n");
+    printf("_________________________________________________________________________________________________________\n");
     printf("                                               PARCIAL 1          \n");
-    printf("********************************************************************************************************\n");
+    printf("_________________________________________________________________________________________________________\n");
     printf("                                          SISTEMA BICICLETERIA                    \n");
-    printf("********************************************************************************************************\n");
+    printf("_________________________________________________________________________________________________________\n");
     printf("1. ALTA BICICLETA\n");
     printf("2. MODIFICAR BICICLETA\n");
     printf("3. BAJA BICICLETA\n");
@@ -93,11 +93,11 @@ int imprimirBicicletas(eBicicleta* lista, int tam, eTipo* tipos, int tamTipos, e
     if(lista != NULL && tam > 0 && tam <= 100 && tipos != NULL && tamTipos> 0 && colores != NULL && tamColores > 0)
     {
         //system("cls");
-        printf("*********************************************************************************************************\n");
-        printf("                                                BICLETAS      \n");
-        printf("*********************************************************************************************************\n");
+        printf("_________________________________________________________________________________________________________\n");
+        printf("                                                BICICLETAS      \n");
+        printf("_________________________________________________________________________________________________________\n");
         printf("  ID            MARCA                      TIPO                     COLOR                    RODADO      \n");
-        printf("*********************************************************************************************************\n");
+        printf("_________________________________________________________________________________________________________\n");
         for(int i = 0; i < tam; i++)
         {
             if(lista[i].estaVacio != 1)
@@ -138,6 +138,10 @@ int agregarBicicleta(eBicicleta* lista, int tam, int ID, eTipo* listaTipos, int 
     int colorIDValido;
     if(lista != NULL && tam > 0 && tam <= 100 && listaTipos != NULL && tamTipos > 0 && listaColores != NULL && tamColores > 0)
     {
+        system("cls");
+        printf("_________________________________________________________________________________________________________\n");
+        printf("                                            ANIADIR BICICLETA     \n");
+        printf("_________________________________________________________________________________________________________\n");
         for(int i = 0; i < tam; i++)
         {
             if(lista[i].estaVacio == 1)
@@ -145,45 +149,51 @@ int agregarBicicleta(eBicicleta* lista, int tam, int ID, eTipo* listaTipos, int 
                 nuevaBici.estaVacio = 0;
                 nuevaBici.id = ID;
                 //marca
-                printf("\nIngrese marca: ");
+                printf("\n Ingrese marca: ");
                 fflush(stdin);
                 gets(nuevaBici.marca);
                 formatearCadena(nuevaBici.marca);
                 while(strlen(nuevaBici.marca) > 30)
                 {
-                    printf("\nDato invalido. Ingrese marca: ");
+                    printf("\n Dato invalido. Ingrese marca: ");
                     fflush(stdin);
                     gets(nuevaBici.marca);
                     formatearCadena(nuevaBici.marca);
                 }
                 //tipo
+                system("cls");
+                printf("\n Ingrese ID tipo para la nueva bicicleta\n");
                 imprimirTipos(listaTipos, tamTipos);
-                printf("\nIngrese ID tipo: ");
+                printf("\nIngrese ID: ");
                 fflush(stdin);
                 scanf("%d", &nuevaBici.idTipo);
                 tipoIDValido = encontrarTipoPorID(listaTipos, tamTipos, nuevaBici.idTipo);
                 while( tipoIDValido < 0)
                 {
-                    printf("\nDato invalido. Ingrese ID tipo: ");
+                    printf("\n Dato invalido. Ingrese ID tipo: ");
                     fflush(stdin);
                     scanf("%d", &nuevaBici.idTipo);
                     tipoIDValido = encontrarTipoPorID(listaTipos, tamTipos, nuevaBici.idTipo);
                 }
                 //color
+                system("cls");
+                printf("\n Ingrese ID color para la nueva bicicleta\n");
                 imprimirColores(listaColores, tamColores);
-                printf("\nIngrese ID color: ");
+                printf("\nIngrese ID: ");
                 fflush(stdin);
                 scanf("%d", &nuevaBici.idColor);
                 colorIDValido = encontrarColorPorID(listaColores, tamColores, nuevaBici.idColor);
                 while( colorIDValido < 0)
                 {
-                    printf("\nDato invalido. Ingrese ID color: ");
+                    printf("\n Dato invalido. Ingrese ID color: ");
                     fflush(stdin);
                     scanf("%d", &nuevaBici.idColor);
                     colorIDValido = encontrarColorPorID(listaColores, tamColores, nuevaBici.idColor);
                 }
                 //rodado
-                printf("\nIngrese rodado: ");
+                system("cls");
+                printf("RODADOS:\n- 20\n- 26\n- 27.5\n- 29\n");
+                printf("\nIngrese rodado para la nueva bicicleta: ");
                 fflush(stdin);
                 scanf("%f", &nuevaBici.rodado);
                 while(nuevaBici.rodado != 20 && nuevaBici.rodado != 26 && nuevaBici.rodado != 27.5 && nuevaBici.rodado != 29)
@@ -217,7 +227,7 @@ int modificarBicicleta(eBicicleta* lista, int tam, eTipo* listaTipo, int tamTipo
     if(lista != NULL && tam > 0 && tam <= 100 && listaTipo != NULL && listaColor != NULL && tamTipo > 0 && tamColor > 0)
     {
         system("cls");
-        printf("*********************************************************************************************************\n");
+        printf("_________________________________________________________________________________________________________\n");
         printf("                                  BIENVENIDO AL MENU DE MODIFICACIONES                                  \n");
         imprimirBicicletas(lista, tam, listaTipo, tamTipo, listaColor, tamColor);
         printf("\nIngrese ID de la bicicleta a modificar: ");
@@ -227,19 +237,19 @@ int modificarBicicleta(eBicicleta* lista, int tam, eTipo* listaTipo, int tamTipo
         if(index == -1)
         {
             system("cls");
-            printf("*********************************************************************************************************\n");
-            printf("                                  BIENVENIDO AL MENU DE MODIFICACIONES                                  \n");
-            printf("*********************************************************************************************************\n");
+            printf("_________________________________________________________________________________________________________\n");
+            printf("                                     BIENVENIDO AL MENU DE MODIFICACIONES                                  \n");
+            printf("_________________________________________________________________________________________________________\n");
             printf("\nLo sentimos. No hay bicicletas con ese ID...\n");
         }
         else
         {
             system("cls");
-            printf("*********************************************************************************************************\n");
-            printf("                                                BICLETAS      \n");
-            printf("*********************************************************************************************************\n");
+            printf("_________________________________________________________________________________________________________\n");
+            printf("                                                BICICLETAS      \n");
+            printf("_________________________________________________________________________________________________________\n");
             printf("  ID            MARCA                      TIPO                     COLOR                    RODADO      \n");
-            printf("*********************************************************************************************************\n");
+            printf("_________________________________________________________________________________________________________\n");
             mostrarBicicleta(lista[index], listaTipo, tamTipo, listaColor, tamColor);
             printf("\nMODIFICAR:\n");
             printf("1. Tipo\n");
@@ -251,14 +261,16 @@ int modificarBicicleta(eBicicleta* lista, int tam, eTipo* listaTipo, int tamTipo
                 {
                 case 1:
                     //Pedir tipo
+                    system("cls");
+                    printf("\n Ingrese un ID tipo nuevo\n");
                     imprimirTipos(listaTipo, tamTipo);
-                    printf("\nIngrese ID tipo: ");
+                    printf("\nIngrese ID: ");
                     fflush(stdin);
                     scanf("%d", &nuevaBici.idTipo);
                     tipoIDValido = encontrarTipoPorID(listaTipo, tamTipo, nuevaBici.idTipo);
                     while( tipoIDValido < 0)
                     {
-                        printf("\nDato invalido. Ingrese ID tipo: ");
+                        printf("\n Dato invalido. Ingrese ID tipo: ");
                         fflush(stdin);
                         scanf("%d", &nuevaBici.idTipo);
                         tipoIDValido = encontrarTipoPorID(listaTipo, tamTipo, nuevaBici.idTipo);
@@ -287,26 +299,28 @@ int modificarBicicleta(eBicicleta* lista, int tam, eTipo* listaTipo, int tamTipo
                     break;
                 case 2:
                     //pedir rodado
-                    printf("\nIngrese nuevo rodado: ");
+                    system("cls");
+                    printf("RODADOS:\n- 20\n- 26\n- 27.5\n- 29\n");
+                    printf("\nIngrese rodado nuevo: ");
                     fflush(stdin);
                     scanf("%f", &nuevaBici.rodado);
                     while(nuevaBici.rodado != 20 && nuevaBici.rodado != 26 && nuevaBici.rodado != 27.5 && nuevaBici.rodado != 29)
                     {
-                        printf("\nDato Invalido. Ingrese nuevo rodado: ");
+                        printf("\n Dato Invalido. Ingrese nuevo rodado: ");
                         fflush(stdin);
                         scanf("%f", &nuevaBici.rodado);
                     }
 
-                    printf("\nRodado anterior: %.2f", lista[index].rodado);
-                    printf("\nRodado nuev0: %.2f", nuevaBici.rodado);
+                    printf("\n Rodado anterior: %.2f", lista[index].rodado);
+                    printf("\n Rodado nuev0: %.2f", nuevaBici.rodado);
                     //confirmar modificacion
-                    printf("\nConfirma modificacion? s-si n-no\n");
+                    printf("\n Confirma modificacion? s-si n-no\n");
                     fflush(stdin);
                     scanf("%c", &confirmacion);
                     confirmacion = tolower(confirmacion);
                     while(confirmacion != 's' && confirmacion != 'n')
                     {
-                        printf("\nOpcion invalida. \nConfirma modificacion? s-si n-no\n");
+                        printf("\n Opcion invalida. \nConfirma modificacion? s-si n-no\n");
                         fflush(stdin);
                         scanf("%c", &confirmacion);
                         confirmacion = tolower(confirmacion);
@@ -350,11 +364,11 @@ int eliminarBicicleta(eBicicleta* lista, int tam, eTipo* listaTipo, int tamTipo,
         else
         {
             system("cls");
-            printf("*********************************************************************************************************\n");
-            printf("                                                BICLETAS      \n");
-            printf("*********************************************************************************************************\n");
+            printf("_________________________________________________________________________________________________________\n");
+            printf("                                                BICICLETAS      \n");
+            printf("_________________________________________________________________________________________________________\n");
             printf("  ID            MARCA                      TIPO                     COLOR                    RODADO      \n");
-            printf("*********************************************************************************************************\n");
+            printf("_________________________________________________________________________________________________________\n");
             mostrarBicicleta(lista[index], listaTipo, tamTipo, listaColor, tamColor);
             printf("Confirmar baja? s - si; n - no\n");
             fflush(stdin);
