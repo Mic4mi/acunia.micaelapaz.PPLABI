@@ -4,19 +4,19 @@
 #include <string.h>
 #include "eTipo.h"
 
-int showTipos(eTipo* tipos, int len)
+int imprimirTipos(eTipo* tipos, int tam)
 {
     int error = -1;
-    if(tipos != NULL && len > 0)
+    if(tipos != NULL && tam > 0)
     {
         printf("++++++++++++++++++++++++++++++++++++++++++\n");
         printf("           TIPOS \n"                      );
         printf("------------------------------------------\n");
         printf("   ID                  DESCRIPCION        \n");
         printf("++++++++++++++++++++++++++++++++++++++++++\n");
-        for(int i = 0; i < len; i++)
+        for(int i = 0; i < tam; i++)
         {
-            showTipo(tipos[i]);
+            mostrarTipo(tipos[i]);
         }
         printf("\n\n");
         error = 0;
@@ -24,22 +24,22 @@ int showTipos(eTipo* tipos, int len)
     return error;
 }
 
-void showTipo(eTipo tipo)
+void mostrarTipo(eTipo tipo)
 {
     printf("  %d    %20s\n", tipo.id, tipo.descripcion);
 }
 
 //Buscar
-int findTipoById(eTipo* list, int len, int id)
+int encontrarTipoPorID(eTipo* lista, int tam, int id)
 {
     int indiceId = -1;
-    if(list != NULL && len > 0 && len <= 100)
+    if(lista != NULL && tam > 0 && tam <= 100)
     {
-        for(int i = 0; i < len; i++)
+        for(int i = 0; i < tam; i++)
         {
-            if(list[i].id == id)
+            if(lista[i].id == id)
             {
-                indiceId = list[i].id;
+                indiceId = lista[i].id;
                 break;
             }
         }
@@ -47,13 +47,13 @@ int findTipoById(eTipo* list, int len, int id)
     return indiceId;
 }
 
-int cargarDescTipo(eTipo* lista, int len, int ID, char* descripcion)
+int cargarDescTipo(eTipo* lista, int tam, int ID, char* descripcion)
 {
     int error = -1;
 
-    if(lista != NULL && descripcion != NULL && len > 0)
+    if(lista != NULL && descripcion != NULL && tam > 0)
     {
-        for(int i = 0; i < len; i++)
+        for(int i = 0; i < tam; i++)
         {
             if(lista[i].id == ID)
             {

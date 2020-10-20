@@ -8,13 +8,14 @@
 #include "eBicicleta.h"
 #include "eServicio.h"
 #include "eTrabajo.h"
-#define LEN_BICI 10
-#define LEN_TRABAJOS 10
-#define LEN_COLORES 5
-#define LEN_TIPOS 4
-#define LEN_SERVICIOS 4
-#define INIT_ID_BICI 9000
-#define INIT_ID_TRABAJO 10000
+#include "validaciones.h"
+#define TAM_BICI 10
+#define TAM_TRABAJOS 10
+#define TAM_COLORES 5
+#define TAM_TIPOS 4
+#define TAM_SERVICIOS 4
+#define INICIAR_ID_BICI 9000
+#define INICIAR_ID_TRABAJO 10000
 
 
 int main()
@@ -23,26 +24,26 @@ int main()
     int opcSelect;
     int hardcodeResult;
     int hardcodeResultTrab;
-    int actualIDBicis = INIT_ID_BICI;
-    int actualIDTrabajos = INIT_ID_TRABAJO;
-    eBicicleta listaBicicletas[LEN_BICI];
-    int addNuevaBici;
+    int actualIDBicis = INICIAR_ID_BICI;
+    int actualIDTrabajos = INICIAR_ID_TRABAJO;
+    eBicicleta listaBicicletas[TAM_BICI];
+    int agregarNuevaBici;
     //case 2
     int modifBici;
     //case 3
-    int remBici;
+    int elimBici;
     int altaTrabajos;
     //Trabajos
-    eTrabajo listaTrabajos[LEN_TRABAJOS];
+    eTrabajo listaTrabajos[TAM_TRABAJOS];
     //Tipos, colores y servicios
-    eTipo tiposDeBicis[LEN_TIPOS] =
+    eTipo tiposDeBicis[TAM_TIPOS] =
     {
         {1000, "Rutera"},
         {1001, "Carrera"},
         {1002, "Mountain"},
         {1003, "BMX"}
     };
-    eColor coloresDeBicis[LEN_COLORES] =
+    eColor coloresDeBicis[TAM_COLORES] =
     {
         {5000, "Gris"},
         {5001, "Negro"},
@@ -58,16 +59,16 @@ int main()
         {20003, "Cadena", 350},
     };
 
-    initBicis(listaBicicletas, LEN_BICI);
-    initTrabajos(listaTrabajos, LEN_TRABAJOS);
-    hardcodeResult = hardcodeBicis(listaBicicletas, LEN_BICI, 5);
-    hardcodeResultTrab = hardcodeTrabajos(listaTrabajos, LEN_TRABAJOS, 5);
+    iniciarBicicletas(listaBicicletas, TAM_BICI);
+    iniciarTrabajos(listaTrabajos, TAM_TRABAJOS);
+    hardcodeResult = hardcodearBicicletas(listaBicicletas, TAM_BICI, 5);
+    hardcodeResultTrab = hardcodearTrabajos(listaTrabajos, TAM_TRABAJOS, 5);
     actualIDTrabajos += hardcodeResultTrab + 1;
     actualIDBicis += hardcodeResult + 1;
     do
     {
         menu();
-        opcMenu = getOption(&opcSelect, "\nOpcion invalida, intente nuevamente\n", 1, 10);
+        opcMenu = obtenerOpcion(&opcSelect, "\nOpcion invalida, intente nuevamente\n", 1, 10);
         if(!opcMenu)
         {
             switch(opcSelect)
@@ -78,8 +79,8 @@ int main()
                 printf("*********************************************************************************************************\n");
                 printf("                                            ANIADIR BICICLETA     \n");
                 printf("*********************************************************************************************************\n");
-                addNuevaBici = addBici(listaBicicletas, LEN_BICI, actualIDBicis, tiposDeBicis, LEN_TIPOS, coloresDeBicis, LEN_COLORES);
-                if(addNuevaBici < 0)
+                agregarNuevaBici = agregarBicicleta(listaBicicletas, TAM_BICI, actualIDBicis, tiposDeBicis, TAM_TIPOS, coloresDeBicis, TAM_COLORES);
+                if(agregarNuevaBici < 0)
                 {
                     printf("\nHa ocurrido un problema. Intente nuevamente.\n");
                 }
@@ -91,7 +92,7 @@ int main()
                 break;
             case 2:
                 //modificar bici
-                modifBici = modifieBici(listaBicicletas, LEN_BICI, tiposDeBicis, LEN_TIPOS, coloresDeBicis, LEN_COLORES);
+                modifBici = modificarBicicleta(listaBicicletas, TAM_BICI, tiposDeBicis, TAM_TIPOS, coloresDeBicis, TAM_COLORES);
                 if(!modifBici)
                 {
                     printf("\nModificacion exitosa.\n");
@@ -106,13 +107,14 @@ int main()
                 }
                 break;
             case 3:
+                //eliminar
                 system("cls");
-                remBici = removeBici(listaBicicletas, LEN_BICI, tiposDeBicis, LEN_TIPOS, coloresDeBicis, LEN_COLORES);
-                if(!remBici)
+                elimBici = eliminarBicicleta(listaBicicletas, TAM_BICI, tiposDeBicis, TAM_TIPOS, coloresDeBicis, TAM_COLORES);
+                if(!elimBici)
                 {
                     printf("\nBaja exitosa.\n");
                 }
-                else if(remBici == 1)
+                else if(elimBici == 1)
                 {
                     printf("\nBaja cancelada por usuario.\n");
                 }
@@ -123,29 +125,29 @@ int main()
                 break;
             case 4:
                 system("cls");
-                printBicis(listaBicicletas, LEN_BICI, tiposDeBicis, LEN_TIPOS, coloresDeBicis, LEN_COLORES);
+                imprimirBicicletas(listaBicicletas, TAM_BICI, tiposDeBicis, TAM_TIPOS, coloresDeBicis, TAM_COLORES);
                 break;
             case 5:
                 //listar colores
                 system("cls");
-                showColores(coloresDeBicis, LEN_COLORES);
+                imprimirColores(coloresDeBicis, TAM_COLORES);
                 break;
             case 6:
                 //listar tipos
                 system("cls");
-                showTipos(tiposDeBicis, LEN_TIPOS);
+                imprimirTipos(tiposDeBicis, TAM_TIPOS);
                 break;
             case 7:
                 //LISTAR SERVICIOS
                 system("cls");
-                showServicios(servicios, LEN_SERVICIOS);
+                imprimirServicios(servicios, TAM_SERVICIOS);
                 break;
             case 8:
                 //alta trabajo
                 system("cls");
                 printf("*********************************************************************************************************\n");
                 printf("                                            ANIADIR TRABAJO     \n");
-                altaTrabajos = altaTrabajo(listaTrabajos, LEN_TRABAJOS, actualIDTrabajos, listaBicicletas, LEN_BICI, servicios, LEN_SERVICIOS, tiposDeBicis, LEN_TIPOS, coloresDeBicis, LEN_COLORES);
+                altaTrabajos = altaTrabajo(listaTrabajos, TAM_TRABAJOS, actualIDTrabajos, listaBicicletas, TAM_BICI, servicios, TAM_SERVICIOS, tiposDeBicis, TAM_TIPOS, coloresDeBicis, TAM_COLORES);
                 if(altaTrabajos < 0)
                 {
                     printf("\nHa ocurrido un problema. Intente nuevamente.\n");
@@ -158,7 +160,7 @@ int main()
                 break;
             case 9:
                 system("cls");
-                printTrabajos(listaTrabajos, LEN_TRABAJOS, listaBicicletas, LEN_BICI, servicios, LEN_SERVICIOS);
+                imprimirTrabajos(listaTrabajos, TAM_TRABAJOS, listaBicicletas, TAM_BICI, servicios, TAM_SERVICIOS);
                 break;
             case 10:
                 printf("Saliendo...\n");

@@ -4,19 +4,19 @@
 #include <string.h>
 #include "eServicio.h"
 
-int showServicios(eServicio* servicios, int len)
+int imprimirServicios(eServicio* servicios, int tam)
 {
     int error = -1;
-    if(servicios != NULL && len > 0)
+    if(servicios != NULL && tam > 0)
     {
         printf("++++++++++++++++++++++++++++++++++++++++++++++++\n");
         printf("                   SERVICIOS \n"                   );
         printf("------------------------------------------------\n");
         printf("   ID            DESCRIPCION           PRECIO\n");
         printf("++++++++++++++++++++++++++++++++++++++++++++++++\n");
-        for(int i = 0; i < len; i++)
+        for(int i = 0; i < tam; i++)
         {
-            showServicio(servicios[i]);
+            mostrarServicio(servicios[i]);
         }
         printf("\n\n");
         error = 0;
@@ -24,21 +24,21 @@ int showServicios(eServicio* servicios, int len)
     return error;
 }
 
-void showServicio(eServicio servicio)
+void mostrarServicio(eServicio servicio)
 {
     printf("  %d    %15s            $%4.2f\n", servicio.id, servicio.descripcion, servicio.precio);
 }
 
-int findServicioById(eServicio* list, int len, int id)
+int econtrarServicioPorID(eServicio* lista, int tam, int id)
 {
     int indiceId = -1;
-    if(list != NULL && len > 0 && len <= 100)
+    if(lista != NULL && tam > 0 && tam <= 100)
     {
-        for(int i = 0; i < len; i++)
+        for(int i = 0; i < tam; i++)
         {
-            if(list[i].id == id)
+            if(lista[i].id == id)
             {
-                indiceId = list[i].id;
+                indiceId = lista[i].id;
                 break;
             }
         }
@@ -46,13 +46,13 @@ int findServicioById(eServicio* list, int len, int id)
     return indiceId;
 }
 
-int cargarDescServ(eServicio* lista, int len, int ID, char* descripcion)
+int cargarDescServ(eServicio* lista, int tam, int ID, char* descripcion)
 {
     int error = -1;
 
-    if(lista != NULL && descripcion != NULL && len > 0)
+    if(lista != NULL && descripcion != NULL && tam > 0)
     {
-        for(int i = 0; i < len; i++)
+        for(int i = 0; i < tam; i++)
         {
             if(lista[i].id == ID)
             {
