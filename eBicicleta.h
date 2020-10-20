@@ -3,41 +3,44 @@
 #include "eColor.h"
 #include "eTipo.h"
 
-typedef struct{
+typedef struct
+{
     int id;
     char marca[30];
     int idTipo;
     int idColor;
     float rodado;
     int estaVacio;
-}eBicicleta;
+} eBicicleta;
 
 /** \brief Imprime el menu principal
  *
  */
-void menu();
+void bicicletas_menuPrincipal();
 
 /** \brief Para indicar que todas las posiciones del array estan vacias,
  * esta función pone todas las banderas (estaVacio) en TRUE
  * \param lista eBicicleta* puntero al array de bicicletas
  * \param tam int longitud del Array
- * \return int Retorna (-1) si hay un error [Longitud invalida o puntero NULL] - (0) si esta todo Ok
+ * \return int Retorna (-1) si hay un error [Longitud invalida o puntero NULL] -
+ * (0) si esta todo Ok
  *
  */
-int iniciarBicicletas(eBicicleta* lista, int tam);
+int bicicletas_inicializar(eBicicleta* lista, int tam);
 
 /** \brief Encuentra un bicicleta por ID retornando su indice en el array
  *
  * \param eBicicleta* lista
  * \param tam int tamaño
  * \param id int
- * \return Retorna la posicion de la bicicleta en el array o (-1) si [Longitud invalida o puntero NULL
- * o bicicleta no encontrada]
+ * \return Retorna la posicion de la bicicleta en el array o (-1) si
+ * [Longitud invalida o puntero NULL o bicicleta no encontrada]
  *
  */
-int encontrarBicicletaPorID(eBicicleta* lista, int tam, int id);
+int bicicletas_buscarPorID(eBicicleta* lista, int tam, int id);
 
-/** \brief Con una biblioteca de datos, reltama posiciones libres en un array de eBicicleta
+/** \brief Con una biblioteca de datos, reltama posiciones libres
+ * en un array de eBicicleta
  *
  * \param eBicicleta* lista
  * \param int tam Tamaño
@@ -45,10 +48,10 @@ int encontrarBicicletaPorID(eBicicleta* lista, int tam, int id);
  * \return int Retorna (-1) si hay un error [Longitud invalida o puntero NULL] -
  * (int) entero que indica la cantidad de eBicicletas cargadas si esta todo Ok
  */
-int hardcodearBicicletas(eBicicleta* lista, int tam, int numberoDeBicis);
+int bicicletas_hardcodear(eBicicleta* lista, int tam, int numberoDeBicis);
 
-/** \brief añade en una lista existente de bicicletas los valores recibidos como parametros
- * en la primera posición que encuentra libre
+/** \brief añade en una lista existente de bicicletas los valores
+ * recibidos como parametros en la primera posición que encuentra libre
  * \param lista eBicicleta*
  * \param tam int
  * \param ID int
@@ -56,10 +59,17 @@ int hardcodearBicicletas(eBicicleta* lista, int tam, int numberoDeBicis);
  * \param tamTipos int
  * \param lista eColor*
  * \param tamColores int
- * \return int Retorna (-1) si hay un Error [longitud invalida o puntero NULL o no hay espacio] - (0) si esta todo Ok
+ * \return int Retorna (-1) si hay un Error [longitud invalida o puntero NULL o no hay espacio] -
+ *  (0) si esta todo Ok
  *
  */
-int agregarBicicleta(eBicicleta* lista, int tam, int ID, eTipo* listaTipos, int tamTipos, eColor* listaColores, int tamColores);
+int bicicletas_agregar(
+    eBicicleta* lista,
+    int tam, int ID,
+    eTipo* listaTipos,
+    int tamTipos,
+    eColor* listaColores,
+    int tamColores);
 
 /** \brief Permite abrir un submenu para modificar datos de una bicicleta
  *
@@ -73,7 +83,13 @@ int agregarBicicleta(eBicicleta* lista, int tam, int ID, eTipo* listaTipos, int 
  * o no encuentra el id de la bicicleta] - (0) si esta todo Ok - (1) Si el usuario cancela la modificacion
  *
  */
-int modificarBicicleta(eBicicleta* lista, int tam, eTipo* listaTipo, int tamTipo, eColor* listaColor, int tamColor);
+int bicicletas_modificar(
+    eBicicleta* lista,
+    int tam,
+    eTipo* listaTipo,
+    int tamTipo,
+    eColor* listaColor,
+    int tamColor);
 
 /** \brief Elmina un empleado por su id (pone la bandera EstaVacio en 1)
  *
@@ -87,7 +103,13 @@ int modificarBicicleta(eBicicleta* lista, int tam, eTipo* listaTipo, int tamTipo
  * o no encuentra el id de la bicicleta] - (0) si esta todo Ok - (1) Si el usuario cancela la baja
  *
  */
-int eliminarBicicleta(eBicicleta* lista, int tam, eTipo* listaTipo, int tamTipo, eColor* listaColor, int tamColor);
+int bicicletas_eliminar(
+    eBicicleta* lista,
+    int tam,
+    eTipo* listaTipo,
+    int tamTipo,
+    eColor* listaColor,
+    int tamColor);
 
 /** \brief Imprime el contenido del array de bicicleta
  *
@@ -97,10 +119,17 @@ int eliminarBicicleta(eBicicleta* lista, int tam, eTipo* listaTipo, int tamTipo,
  * \param tamTipos int
  * \param lista eColor*
  * \param tamColores int
- * \return int Retorna (-1) si hay un Error [longitud invalida o puntero NULL o no hay espacio] - (0) si esta todo Ok
+ * \return int Retorna (-1) si hay un Error [longitud invalida o puntero NULL o no hay espacio] -
+ * (0) si esta todo Ok
  *
  */
-int imprimirBicicletas(eBicicleta* lista, int tam, eTipo* tipos, int tamTipos, eColor* colores, int tamColores);
+int bicicletas_imprimirLista(
+    eBicicleta* lista,
+    int tam,
+    eTipo* tipos,
+    int tamTipos,
+    eColor* colores,
+    int tamColores);
 
 /** \brief Imprime 1 bicicleta de la lista de bicicletas
  *
@@ -111,7 +140,12 @@ int imprimirBicicletas(eBicicleta* lista, int tam, eTipo* tipos, int tamTipos, e
  * \param tamColores int
  *
  */
-void mostrarBicicleta(eBicicleta bici, eTipo* tipos, int tamTipos, eColor* colores, int tamColores);
+void bicicletas_imprimirItem(
+    eBicicleta bici,
+    eTipo* tipos,
+    int tamTipos,
+    eColor* colores,
+    int tamColores);
 
 /** \brief Carga en una cadena de caracteres la marca de la biciclieta
  *
@@ -122,7 +156,11 @@ void mostrarBicicleta(eBicicleta bici, eTipo* tipos, int tamTipos, eColor* color
  * \return int Retorna (-1) si hay un error [Longitud invalida o puntero NULL] - (0) si esta todo Ok
  *
  */
-int cargarDescMarca(eBicicleta* lista, int tam, int ID, char* descripcion);
+int bicicletas_cargarDescMarca(
+    eBicicleta* lista,
+    int tam,
+    int ID,
+    char* descripcion);
 
 /** \brief Ordena un array de eBicicletas por tipo y rodado
  *
@@ -133,5 +171,9 @@ int cargarDescMarca(eBicicleta* lista, int tam, int ID, char* descripcion);
  * \return int Retorna (-1) si hay un error [Longitud invalida o puntero NULL] - (0) si esta todo Ok
  *
  */
-int ordenarPorTipoRodado(eBicicleta* lista, int tam, eTipo* tipos, int tamTipos);
+int bicicletas_ordenarPorTipoYRodado(
+    eBicicleta* lista,
+    int tam,
+    eTipo* tipos,
+    int tamTipos);
 #endif // EBICICLETA_H_INCLUDED

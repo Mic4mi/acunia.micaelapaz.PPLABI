@@ -28,17 +28,17 @@ int altaTrabajo(eTrabajo* lista, int tam, int ID, eBicicleta* listaBicis, int ta
                 nuevoTrabajo.id = ID;
                 system("cls");
                 printf("\n Ingrese ID de la Bicicleta del nuevo trabajo\n");
-                imprimirBicicletas(listaBicis, tamBicis, tiposDeBici, tamTiposBicis, coloresDeBicis, tamColores);
+                bicicletas_imprimirLista(listaBicis, tamBicis, tiposDeBici, tamTiposBicis, coloresDeBicis, tamColores);
                 printf("\n Ingrese ID de la Bicicleta: ");
                 fflush(stdin);
                 scanf("%d", &nuevoTrabajo.idBicicleta);
-                biciIDValido = encontrarBicicletaPorID(listaBicis, tamBicis, nuevoTrabajo.idBicicleta);
+                biciIDValido = bicicletas_buscarPorID(listaBicis, tamBicis, nuevoTrabajo.idBicicleta);
                 while(  biciIDValido < 0)
                 {
                     printf("\n Dato invalido. Ingrese ID tipo: ");
                     fflush(stdin);
                     scanf("%d", &nuevoTrabajo.idBicicleta);
-                    biciIDValido = encontrarBicicletaPorID(listaBicis, tamBicis, nuevoTrabajo.idBicicleta);
+                    biciIDValido = bicicletas_buscarPorID(listaBicis, tamBicis, nuevoTrabajo.idBicicleta);
                 }
                 system("cls");
                 printf("\n Ingrese ID del servicio realizado en el nuevo trabajo\n");
@@ -121,7 +121,7 @@ void mostrarTrabajo(eTrabajo trabajo, eBicicleta* bicicletas, int tamBicis, eSer
     char descMarcaBici[30];
 
     cargarDescServ(servicios, tamServicios, trabajo.idServicio, descServ);
-    cargarDescMarca(bicicletas, tamBicis, trabajo.idBicicleta, descMarcaBici);
+    bicicletas_cargarDescMarca(bicicletas, tamBicis, trabajo.idBicicleta, descMarcaBici);
 
     printf("  %5d %15s               %15s                    %0d/%0d/%d\n",
            trabajo.id,

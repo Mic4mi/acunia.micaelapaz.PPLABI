@@ -58,10 +58,10 @@ int main()
     int modifBici;
     int elimBici;
 
-    iniciarBicicletas(listaBicicletas, TAM_BICI);
+    bicicletas_inicializar(listaBicicletas, TAM_BICI);
     iniciarTrabajos(listaTrabajos, TAM_TRABAJOS);
 
-    hardcodeResult = hardcodearBicicletas(listaBicicletas, TAM_BICI, 5);
+    hardcodeResult = bicicletas_hardcodear(listaBicicletas, TAM_BICI, 5);
     hardcodeResultTrab = hardcodearTrabajos(listaTrabajos, TAM_TRABAJOS, 5);
 
     actualIDTrabajos += hardcodeResultTrab + 1;
@@ -69,14 +69,14 @@ int main()
 
     do
     {
-        menu();
+        bicicletas_menuPrincipal();
         opcMenu = obtenerOpcion(&opcSelect, "\nOpcion invalida, intente nuevamente\n", 1, 10);
         if(!opcMenu)
         {
             switch(opcSelect)
             {
             case 1:
-                if(agregarBicicleta(listaBicicletas, TAM_BICI, actualIDBicis, tiposDeBicis, TAM_TIPOS, coloresDeBicis, TAM_COLORES) < 0)
+                if(bicicletas_agregar(listaBicicletas, TAM_BICI, actualIDBicis, tiposDeBicis, TAM_TIPOS, coloresDeBicis, TAM_COLORES) < 0)
                 {
                     printf("\nHa ocurrido un problema. Intente nuevamente.\n");
                 }
@@ -87,8 +87,7 @@ int main()
                 }
                 break;
             case 2:
-                //modificar bici
-                modifBici = modificarBicicleta(listaBicicletas, TAM_BICI, tiposDeBicis, TAM_TIPOS, coloresDeBicis, TAM_COLORES);
+                modifBici = bicicletas_modificar(listaBicicletas, TAM_BICI, tiposDeBicis, TAM_TIPOS, coloresDeBicis, TAM_COLORES);
                 if(!modifBici)
                 {
                     printf("\nModificacion exitosa.\n");
@@ -103,9 +102,8 @@ int main()
                 }
                 break;
             case 3:
-                //eliminar
                 system("cls");
-                elimBici = eliminarBicicleta(listaBicicletas, TAM_BICI, tiposDeBicis, TAM_TIPOS, coloresDeBicis, TAM_COLORES);
+                elimBici = bicicletas_eliminar(listaBicicletas, TAM_BICI, tiposDeBicis, TAM_TIPOS, coloresDeBicis, TAM_COLORES);
                 if(!elimBici)
                 {
                     printf("\nBaja exitosa.\n");
@@ -121,8 +119,8 @@ int main()
                 break;
             case 4:
                 system("cls");
-                ordenarPorTipoRodado(listaBicicletas, TAM_BICI, tiposDeBicis, TAM_TIPOS);
-                imprimirBicicletas(listaBicicletas, TAM_BICI, tiposDeBicis, TAM_TIPOS, coloresDeBicis, TAM_COLORES);
+                bicicletas_ordenarPorTipoYRodado(listaBicicletas, TAM_BICI, tiposDeBicis, TAM_TIPOS);
+                bicicletas_imprimirLista(listaBicicletas, TAM_BICI, tiposDeBicis, TAM_TIPOS, coloresDeBicis, TAM_COLORES);
                 break;
             case 5:
                 //listar colores
