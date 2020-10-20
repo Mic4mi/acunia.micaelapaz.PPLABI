@@ -55,10 +55,8 @@ int main()
     int hardcodeResult;
     int hardcodeResultTrab;
 
-    int agregarNuevaBici;
     int modifBici;
     int elimBici;
-    int altaTrabajos;
 
     iniciarBicicletas(listaBicicletas, TAM_BICI);
     iniciarTrabajos(listaTrabajos, TAM_TRABAJOS);
@@ -78,9 +76,7 @@ int main()
             switch(opcSelect)
             {
             case 1:
-                //Cargar bici
-                agregarNuevaBici = agregarBicicleta(listaBicicletas, TAM_BICI, actualIDBicis, tiposDeBicis, TAM_TIPOS, coloresDeBicis, TAM_COLORES);
-                if(agregarNuevaBici < 0)
+                if(agregarBicicleta(listaBicicletas, TAM_BICI, actualIDBicis, tiposDeBicis, TAM_TIPOS, coloresDeBicis, TAM_COLORES) < 0)
                 {
                     printf("\nHa ocurrido un problema. Intente nuevamente.\n");
                 }
@@ -143,9 +139,7 @@ int main()
                 imprimirServicios(servicios, TAM_SERVICIOS);
                 break;
             case 8:
-                //alta trabajo
-                altaTrabajos = altaTrabajo(listaTrabajos, TAM_TRABAJOS, actualIDTrabajos, listaBicicletas, TAM_BICI, servicios, TAM_SERVICIOS, tiposDeBicis, TAM_TIPOS, coloresDeBicis, TAM_COLORES);
-                if(altaTrabajos < 0)
+                if(altaTrabajo(listaTrabajos, TAM_TRABAJOS, actualIDTrabajos, listaBicicletas, TAM_BICI, servicios, TAM_SERVICIOS, tiposDeBicis, TAM_TIPOS, coloresDeBicis, TAM_COLORES) < 0)
                 {
                     printf("\nHa ocurrido un problema. Intente nuevamente.\n");
                 }

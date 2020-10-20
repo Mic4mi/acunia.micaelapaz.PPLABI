@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1603165572 source:c:\users\micae\onedrive\escritorio\utn\prog & lab\parciales\parcial-laboratorio1\ebicicleta.c
+1603165652 source:c:\users\micae\onedrive\escritorio\utn\prog & lab\parciales\parcial-laboratorio1\ebicicleta.c
 	<stdio.h>
 	<stdlib.h>
 	<ctype.h>
@@ -14,7 +14,7 @@
 	"eColor.h"
 	"eTipo.h"
 
-1603164845 source:c:\users\micae\onedrive\escritorio\utn\prog & lab\parciales\parcial-laboratorio1\main.c
+1603166261 source:c:\users\micae\onedrive\escritorio\utn\prog & lab\parciales\parcial-laboratorio1\main.c
 	<stdio.h>
 	<stdlib.h>
 	<ctype.h>
@@ -56,7 +56,7 @@
 	<string.h>
 	"eTipo.h"
 
-1603164845 source:c:\users\micae\onedrive\escritorio\utn\prog & lab\parciales\parcial-laboratorio1\etrabajo.c
+1603166506 source:c:\users\micae\onedrive\escritorio\utn\prog & lab\parciales\parcial-laboratorio1\etrabajo.c
 	<stdio.h>
 	<stdlib.h>
 	<ctype.h>
