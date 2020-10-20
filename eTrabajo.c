@@ -6,19 +6,32 @@
 #include "eTrabajo.h"
 #include "validaciones.h"
 
-
-
-//mover a la biblioteca trabajo
-int altaTrabajo(eTrabajo* lista, int tam, int ID, eBicicleta* listaBicis, int tamBicis, eServicio* listaServicios, int tamServicios, eTipo* tiposDeBici, int tamTiposBicis, eColor* coloresDeBicis, int tamColores)
+int trabajos_agregar(
+    eTrabajo* lista,
+    int tam, int ID,
+    eBicicleta* listaBicis,
+    int tamBicis,
+    eServicio* listaServicios,
+    int tamServicios,
+    eTipo* tiposDeBici,
+    int tamTiposBicis,
+    eColor* coloresDeBicis,
+    int tamColores)
 {
     eTrabajo nuevoTrabajo;
     int biciIDValido;
     int servIDValido;
-    if(lista != NULL && tam > 0 && tam <= 100 && listaBicis != NULL && tamBicis > 0 && listaServicios != NULL && tamServicios > 0)
+    if(lista != NULL &&
+            tam > 0 &&
+            tam <= 100 &&
+            listaBicis != NULL &&
+            tamBicis > 0 &&
+            listaServicios != NULL &&
+            tamServicios > 0)
     {
         system("cls");
         printf("_________________________________________________________________________________________________________\n");
-        printf("                                            ANIADIR TRABAJO     \n");
+        printf("                                            AGREGAR TRABAJO     \n");
 
         for(int i = 0; i < tam; i++)
         {
@@ -28,17 +41,31 @@ int altaTrabajo(eTrabajo* lista, int tam, int ID, eBicicleta* listaBicis, int ta
                 nuevoTrabajo.id = ID;
                 system("cls");
                 printf("\n Ingrese ID de la Bicicleta del nuevo trabajo\n");
-                bicicletas_imprimirLista(listaBicis, tamBicis, tiposDeBici, tamTiposBicis, coloresDeBicis, tamColores);
+                bicicletas_imprimirLista(
+                    listaBicis,
+                    tamBicis,
+                    tiposDeBici,
+                    tamTiposBicis,
+                    coloresDeBicis,
+                    tamColores);
                 printf("\n Ingrese ID de la Bicicleta: ");
                 fflush(stdin);
                 scanf("%d", &nuevoTrabajo.idBicicleta);
-                biciIDValido = bicicletas_buscarPorID(listaBicis, tamBicis, nuevoTrabajo.idBicicleta);
+                biciIDValido = bicicletas_buscarPorID(
+                                   listaBicis,
+                                   tamBicis,
+                                   nuevoTrabajo.idBicicleta
+                               );
                 while(  biciIDValido < 0)
                 {
                     printf("\n Dato invalido. Ingrese ID tipo: ");
                     fflush(stdin);
                     scanf("%d", &nuevoTrabajo.idBicicleta);
-                    biciIDValido = bicicletas_buscarPorID(listaBicis, tamBicis, nuevoTrabajo.idBicicleta);
+                    biciIDValido = bicicletas_buscarPorID(
+                                       listaBicis,
+                                       tamBicis,
+                                       nuevoTrabajo.idBicicleta
+                                   );
                 }
                 system("cls");
                 printf("\n Ingrese ID del servicio realizado en el nuevo trabajo\n");
@@ -46,24 +73,46 @@ int altaTrabajo(eTrabajo* lista, int tam, int ID, eBicicleta* listaBicis, int ta
                 printf("\n Ingrese ID del servicio: ");
                 fflush(stdin);
                 scanf("%d", &nuevoTrabajo.idServicio);
-                servIDValido = econtrarServicioPorID(listaServicios, tamServicios, nuevoTrabajo.idServicio);
+                servIDValido = econtrarServicioPorID(
+                                   listaServicios,
+                                   tamServicios,
+                                   nuevoTrabajo.idServicio
+                               );
                 while(  servIDValido < 0)
                 {
                     printf("\n Dato invalido. Ingrese ID tipo: ");
                     fflush(stdin);
                     scanf("%d", &nuevoTrabajo.idServicio);
-                    servIDValido = econtrarServicioPorID(listaServicios, tamServicios, nuevoTrabajo.idServicio);
+                    servIDValido = econtrarServicioPorID(
+                                       listaServicios,
+                                       tamServicios,
+                                       nuevoTrabajo.idServicio
+                                   );
                 }
                 //Pedir fecha
                 system("cls");
                 printf("\n Ingrese fecha dd/mm/aaaa: ");
                 fflush(stdin);
-                scanf("%d/%d/%d", &nuevoTrabajo.fecha.dia, &nuevoTrabajo.fecha.mes, &nuevoTrabajo.fecha.anio);
-                while(nuevoTrabajo.fecha.dia > 31 || nuevoTrabajo.fecha.dia < 0 || nuevoTrabajo.fecha.mes > 12 || nuevoTrabajo.fecha.mes < 0 || nuevoTrabajo.fecha.anio < 1900 || nuevoTrabajo.fecha.anio > 2100)
+                scanf("%d/%d/%d",
+                      &nuevoTrabajo.fecha.dia,
+                      &nuevoTrabajo.fecha.mes,
+                      &nuevoTrabajo.fecha.anio
+                     );
+                while(
+                    nuevoTrabajo.fecha.dia > 31 ||
+                    nuevoTrabajo.fecha.dia < 0 ||
+                    nuevoTrabajo.fecha.mes > 12 ||
+                    nuevoTrabajo.fecha.mes < 0 ||
+                    nuevoTrabajo.fecha.anio < 1900 ||
+                    nuevoTrabajo.fecha.anio > 2100
+                )
                 {
                     printf("\n Dato invalido\n Ingrese fecha dd/mm/aaaa: ");
                     fflush(stdin);
-                    scanf("%d/%d/%d", &nuevoTrabajo.fecha.dia, &nuevoTrabajo.fecha.mes, &nuevoTrabajo.fecha.anio);
+                    scanf("%d/%d/%d",
+                          &nuevoTrabajo.fecha.dia,
+                          &nuevoTrabajo.fecha.mes,
+                          &nuevoTrabajo.fecha.anio);
                 }
 
                 lista[i] = nuevoTrabajo;
@@ -77,7 +126,7 @@ int altaTrabajo(eTrabajo* lista, int tam, int ID, eBicicleta* listaBicis, int ta
 }
 
 
-int iniciarTrabajos(eTrabajo* lista, int tam)
+int trabajos_inicializar(eTrabajo* lista, int tam)
 {
     if(lista != NULL && tam > 0 && tam <= 100)
     {
@@ -92,9 +141,21 @@ int iniciarTrabajos(eTrabajo* lista, int tam)
 }
 
 //imprimir
-int imprimirTrabajos(eTrabajo* lista, int tam, eBicicleta* bicicletas, int tamBicis, eServicio* servicios, int tamServicios)
+int trabajos_imprimirLista(
+    eTrabajo* lista,
+    int tam,
+    eBicicleta* bicicletas,
+    int tamBicis,
+    eServicio* servicios,
+    int tamServicios)
 {
-    if(lista != NULL && tam > 0 && tam <= 100 && bicicletas != NULL && tamBicis > 0 && servicios != NULL && tamServicios > 0)
+    if(lista != NULL &&
+            tam > 0 &&
+            tam <= 100 &&
+            bicicletas != NULL &&
+            tamBicis > 0 &&
+            servicios != NULL &&
+            tamServicios > 0)
     {
         //system("cls");
         printf("_________________________________________________________________________________________________________\n");
@@ -106,7 +167,13 @@ int imprimirTrabajos(eTrabajo* lista, int tam, eBicicleta* bicicletas, int tamBi
         {
             if(lista[i].estaVacio != 1)
             {
-                mostrarTrabajo(lista[i], bicicletas, tamBicis, servicios, tamServicios);
+                trabajos_imprimirItem(
+                    lista[i],
+                    bicicletas,
+                    tamBicis,
+                    servicios,
+                    tamServicios
+                );
             }
         }
         printf("\n\n");
@@ -115,7 +182,12 @@ int imprimirTrabajos(eTrabajo* lista, int tam, eBicicleta* bicicletas, int tamBi
     return -1;
 }
 
-void mostrarTrabajo(eTrabajo trabajo, eBicicleta* bicicletas, int tamBicis, eServicio* servicios, int tamServicios)
+void trabajos_imprimirItem(
+    eTrabajo trabajo,
+    eBicicleta* bicicletas,
+    int tamBicis,
+    eServicio* servicios,
+    int tamServicios)
 {
     char descServ[30];
     char descMarcaBici[30];
@@ -132,7 +204,7 @@ void mostrarTrabajo(eTrabajo trabajo, eBicicleta* bicicletas, int tamBicis, eSer
            trabajo.fecha.anio);
 }
 
-int hardcodearTrabajos(eTrabajo* lista, int tam, int numeroDeTrabajos)
+int trabajos_hardcodear(eTrabajo* lista, int tam, int numeroDeTrabajos)
 {
     int returns = -1;
     if(lista != NULL && tam > 0 && numeroDeTrabajos > 0 && numeroDeTrabajos < tam)
@@ -153,5 +225,5 @@ int hardcodearTrabajos(eTrabajo* lista, int tam, int numeroDeTrabajos)
         }
     }
 
-    return returns; //retorna -1 si hubo un error, sino un entero indicando la cantidad de mascotas que cargó
+    return returns;
 }

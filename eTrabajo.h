@@ -4,13 +4,14 @@
 #include "eServicio.h"
 #include "eBicicleta.h"
 
-typedef struct{
+typedef struct
+{
     int id; //autoincremental
     int idBicicleta; //validar
     int idServicio; // validar
     eFecha fecha; //validar dia mes y anio
     int estaVacio;
-}eTrabajo;
+} eTrabajo;
 
 
 /** \brief Para indicar que todas las posiciones del array estan vacias,
@@ -20,7 +21,7 @@ typedef struct{
  * \return int Retorna (-1) si hay un error [Longitud invalida o puntero NULL] - (0) si esta todo Ok
  *
  */
-int iniciarTrabajos(eTrabajo* lista, int tam);
+int trabajos_inicializar(eTrabajo* lista, int tam);
 
 /** \brief Con una biblioteca de datos, rellena posiciones libres en un array de eTrabajo
  *
@@ -30,7 +31,7 @@ int iniciarTrabajos(eTrabajo* lista, int tam);
  * \return int Retorna (-1) si hay un error [Longitud invalida o puntero NULL] -
  * (int) entero que indica la cantidad de eTrabajo cargadas si esta todo Ok
  */
-int hardcodearTrabajos(eTrabajo* lista, int tam, int numeroDeTrabajos);
+int trabajos_hardcodear(eTrabajo* lista, int tam, int numeroDeTrabajos);
 
 /** \brief añade en una lista existente de trabajos los valores recibidos como parametros
  * en la primera posición que encuentra libre
@@ -48,7 +49,18 @@ int hardcodearTrabajos(eTrabajo* lista, int tam, int numeroDeTrabajos);
  * \return int Retorna (-1) si hay un Error [longitud invalida o puntero NULL o no hay espacio] - (0) si esta todo Ok
  *
  */
-int altaTrabajo(eTrabajo* lista, int tam, int ID, eBicicleta* listaBicis, int tamBicis, eServicio* listaServicios, int tamServicios, eTipo* tiposDeBici, int tamTiposBicis, eColor* coloresDeBicis, int tamColores);
+int trabajos_agregar(
+    eTrabajo* lista,
+    int tam,
+    int ID,
+    eBicicleta* listaBicis,
+    int tamBicis,
+    eServicio* listaServicios,
+    int tamServicios,
+    eTipo* tiposDeBici,
+    int tamTiposBicis,
+    eColor* coloresDeBicis,
+    int tamColores);
 
 /** \brief Imprime el contenido del array de trabajo
  *
@@ -61,7 +73,13 @@ int altaTrabajo(eTrabajo* lista, int tam, int ID, eBicicleta* listaBicis, int ta
  * \return int Retorna (-1) si hay un Error [longitud invalida o puntero NULL o no hay espacio] - (0) si esta todo Ok
  *
  */
-int imprimirTrabajos(eTrabajo* lista, int tam, eBicicleta* bicicletas, int tamBicis, eServicio* servicios, int tamServicios);
+int trabajos_imprimirLista(
+    eTrabajo* lista,
+    int tam,
+    eBicicleta* bicicletas,
+    int tamBicis,
+    eServicio* servicios,
+    int tamServicios);
 
 /** \brief Imprime 1 bicicleta de la lista de bicicletas
  *
@@ -72,5 +90,10 @@ int imprimirTrabajos(eTrabajo* lista, int tam, eBicicleta* bicicletas, int tamBi
  * \param tamServicios int tamaño
  *
  */
-void mostrarTrabajo(eTrabajo trabajo, eBicicleta* bicicletas, int tamBicis, eServicio* servicios, int tamServicios);
+void trabajos_imprimirItem(
+    eTrabajo trabajo,
+    eBicicleta* bicicletas,
+    int tamBicis,
+    eServicio* servicios,
+    int tamServicios);
 #endif // ETRABAJO_H_INCLUDED

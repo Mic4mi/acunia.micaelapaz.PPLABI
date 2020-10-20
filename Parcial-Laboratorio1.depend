@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1603205954 source:c:\users\micae\onedrive\escritorio\utn\prog & lab\parciales\parcial-laboratorio1\ebicicleta.c
+1603208084 source:c:\users\micae\onedrive\escritorio\utn\prog & lab\parciales\parcial-laboratorio1\ebicicleta.c
 	<stdio.h>
 	<stdlib.h>
 	<ctype.h>
@@ -14,7 +14,7 @@
 	"eColor.h"
 	"eTipo.h"
 
-1603205209 source:c:\users\micae\onedrive\escritorio\utn\prog & lab\parciales\parcial-laboratorio1\main.c
+1603207859 source:c:\users\micae\onedrive\escritorio\utn\prog & lab\parciales\parcial-laboratorio1\main.c
 	<stdio.h>
 	<stdlib.h>
 	<ctype.h>
@@ -35,7 +35,7 @@
 
 1603161183 c:\users\micae\onedrive\escritorio\utn\prog & lab\parciales\parcial-laboratorio1\eservicio.h
 
-1603159267 c:\users\micae\onedrive\escritorio\utn\prog & lab\parciales\parcial-laboratorio1\etrabajo.h
+1603207994 c:\users\micae\onedrive\escritorio\utn\prog & lab\parciales\parcial-laboratorio1\etrabajo.h
 	"eFecha.h"
 	"eServicio.h"
 	"eBicicleta.h"
@@ -56,7 +56,7 @@
 	<string.h>
 	"eTipo.h"
 
-1603205163 source:c:\users\micae\onedrive\escritorio\utn\prog & lab\parciales\parcial-laboratorio1\etrabajo.c
+1603208546 source:c:\users\micae\onedrive\escritorio\utn\prog & lab\parciales\parcial-laboratorio1\etrabajo.c
 	<stdio.h>
 	<stdlib.h>
 	<ctype.h>

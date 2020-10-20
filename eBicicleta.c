@@ -8,7 +8,6 @@
 #include "eBicicleta.h"
 #include "validaciones.h"
 
-
 void bicicletas_menuPrincipal()
 {
     system("cls");
@@ -29,7 +28,6 @@ void bicicletas_menuPrincipal()
     printf("10. SALIR\n");
 }
 
-//Inicializar bicis
 int bicicletas_inicializar(eBicicleta* lista, int tam)
 {
     if(lista != NULL && tam > 0 && tam <= 100)
@@ -62,7 +60,6 @@ int bicicletas_buscarPorID(eBicicleta* lista, int tam, int id)
 }
 
 
-// harcodeo
 int bicicletas_hardcodear(eBicicleta* lista, int tam, int numberoDeBicis)
 {
     int returns = -1;
@@ -87,11 +84,9 @@ int bicicletas_hardcodear(eBicicleta* lista, int tam, int numberoDeBicis)
         }
     }
 
-    return returns; //retorna -1 si hubo un error, sino un entero indicando la cantidad de bicicletas que cargó
+    return returns;
 }
 
-
-//imprimir
 int bicicletas_imprimirLista(
     eBicicleta* lista,
     int tam,
@@ -109,7 +104,6 @@ int bicicletas_imprimirLista(
         colores != NULL &&
         tamColores > 0)
     {
-        //system("cls");
         printf("_________________________________________________________________________________________________________\n");
         printf("                                                BICICLETAS      \n");
         printf("_________________________________________________________________________________________________________\n");
@@ -156,8 +150,6 @@ void bicicletas_imprimirItem(
           );
 }
 
-
-//ALTA
 int bicicletas_agregar(
     eBicicleta* lista,
     int tam,
@@ -208,13 +200,21 @@ int bicicletas_agregar(
                 printf("\nIngrese ID: ");
                 fflush(stdin);
                 scanf("%d", &nuevaBici.idTipo);
-                tipoIDValido = encontrarTipoPorID(listaTipos, tamTipos, nuevaBici.idTipo);
+                tipoIDValido = encontrarTipoPorID(
+                                   listaTipos,
+                                   tamTipos,
+                                   nuevaBici.idTipo
+                               );
                 while( tipoIDValido < 0)
                 {
                     printf("\n Dato invalido. Ingrese ID tipo: ");
                     fflush(stdin);
                     scanf("%d", &nuevaBici.idTipo);
-                    tipoIDValido = encontrarTipoPorID(listaTipos, tamTipos, nuevaBici.idTipo);
+                    tipoIDValido = encontrarTipoPorID(
+                                       listaTipos,
+                                       tamTipos,
+                                       nuevaBici.idTipo
+                                   );
                 }
                 //color
                 system("cls");
@@ -223,13 +223,21 @@ int bicicletas_agregar(
                 printf("\nIngrese ID: ");
                 fflush(stdin);
                 scanf("%d", &nuevaBici.idColor);
-                colorIDValido = encontrarColorPorID(listaColores, tamColores, nuevaBici.idColor);
+                colorIDValido = encontrarColorPorID(
+                                    listaColores,
+                                    tamColores,
+                                    nuevaBici.idColor
+                                );
                 while( colorIDValido < 0)
                 {
                     printf("\n Dato invalido. Ingrese ID color: ");
                     fflush(stdin);
                     scanf("%d", &nuevaBici.idColor);
-                    colorIDValido = encontrarColorPorID(listaColores, tamColores, nuevaBici.idColor);
+                    colorIDValido = encontrarColorPorID(
+                                        listaColores,
+                                        tamColores,
+                                        nuevaBici.idColor
+                                    );
                 }
                 //rodado
                 system("cls");
@@ -258,7 +266,6 @@ int bicicletas_agregar(
     return -1;
 }
 
-//modificacion
 int bicicletas_modificar(
     eBicicleta* lista,
     int tam,
@@ -336,13 +343,19 @@ int bicicletas_modificar(
                     printf("\nIngrese ID: ");
                     fflush(stdin);
                     scanf("%d", &nuevaBici.idTipo);
-                    tipoIDValido = encontrarTipoPorID(listaTipo, tamTipo, nuevaBici.idTipo);
+                    tipoIDValido = encontrarTipoPorID(
+                                       listaTipo,
+                                       tamTipo,
+                                       nuevaBici.idTipo);
                     while( tipoIDValido < 0)
                     {
                         printf("\n Dato invalido. Ingrese ID tipo: ");
                         fflush(stdin);
                         scanf("%d", &nuevaBici.idTipo);
-                        tipoIDValido = encontrarTipoPorID(listaTipo, tamTipo, nuevaBici.idTipo);
+                        tipoIDValido = encontrarTipoPorID(
+                                           listaTipo,
+                                           tamTipo,
+                                           nuevaBici.idTipo);
                     }
                     //pedir confirmacion
                     printf("\nConfirma modificacion? s-si n-no\n");
@@ -495,7 +508,6 @@ int bicicletas_eliminar(
     return error;
 }
 
-//cargar marcas
 int bicicletas_cargarDescMarca(
     eBicicleta* lista,
     int len,

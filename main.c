@@ -59,10 +59,10 @@ int main()
     int elimBici;
 
     bicicletas_inicializar(listaBicicletas, TAM_BICI);
-    iniciarTrabajos(listaTrabajos, TAM_TRABAJOS);
+    trabajos_inicializar(listaTrabajos, TAM_TRABAJOS);
 
     hardcodeResult = bicicletas_hardcodear(listaBicicletas, TAM_BICI, 5);
-    hardcodeResultTrab = hardcodearTrabajos(listaTrabajos, TAM_TRABAJOS, 5);
+    hardcodeResultTrab = trabajos_hardcodear(listaTrabajos, TAM_TRABAJOS, 5);
 
     actualIDTrabajos += hardcodeResultTrab + 1;
     actualIDBicis += hardcodeResult + 1;
@@ -138,7 +138,18 @@ int main()
                 imprimirServicios(servicios, TAM_SERVICIOS);
                 break;
             case 8:
-                if(altaTrabajo(listaTrabajos, TAM_TRABAJOS, actualIDTrabajos, listaBicicletas, TAM_BICI, servicios, TAM_SERVICIOS, tiposDeBicis, TAM_TIPOS, coloresDeBicis, TAM_COLORES) < 0)
+                if(trabajos_agregar(
+                            listaTrabajos,
+                            TAM_TRABAJOS,
+                            actualIDTrabajos,
+                            listaBicicletas,
+                            TAM_BICI,
+                            servicios,
+                            TAM_SERVICIOS,
+                            tiposDeBicis,
+                            TAM_TIPOS,
+                            coloresDeBicis,
+                            TAM_COLORES) < 0)
                 {
                     printf("\nHa ocurrido un problema. Intente nuevamente.\n");
                 }
@@ -150,7 +161,13 @@ int main()
                 break;
             case 9:
                 system("cls");
-                imprimirTrabajos(listaTrabajos, TAM_TRABAJOS, listaBicicletas, TAM_BICI, servicios, TAM_SERVICIOS);
+                trabajos_imprimirLista(
+                    listaTrabajos,
+                    TAM_TRABAJOS,
+                    listaBicicletas,
+                    TAM_BICI,
+                    servicios,
+                    TAM_SERVICIOS);
                 break;
             case 10:
                 printf("Saliendo...\n");
