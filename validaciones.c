@@ -5,7 +5,7 @@
 #include "validaciones.h"
 
 
-int obtenerOpcion(int* pResultado, char* errorMsj, int min, int max)
+int validaciones_obtenerOpcion(int* pResultado, char* errorMsj, int min, int max)
 {
     int error = -1;
     int opcion;
@@ -35,7 +35,7 @@ int obtenerOpcion(int* pResultado, char* errorMsj, int min, int max)
 }
 
 
-void formatearCadena(char* cadena)
+void validaciones_formatearCadena(char* cadena)
 {
     int tam;
     strlwr(cadena);

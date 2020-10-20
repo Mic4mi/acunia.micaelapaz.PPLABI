@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1603213275 source:c:\users\micae\onedrive\escritorio\utn\prog & lab\parciales\parcial-laboratorio1\ebicicleta.c
+1603214376 source:c:\users\micae\onedrive\escritorio\utn\prog & lab\parciales\parcial-laboratorio1\ebicicleta.c
 	<stdio.h>
 	<stdlib.h>
 	<ctype.h>
@@ -14,7 +14,7 @@
 	"eColor.h"
 	"eTipo.h"
 
-1603213649 source:c:\users\micae\onedrive\escritorio\utn\prog & lab\parciales\parcial-laboratorio1\main.c
+1603214382 source:c:\users\micae\onedrive\escritorio\utn\prog & lab\parciales\parcial-laboratorio1\main.c
 	<stdio.h>
 	<stdlib.h>
 	<ctype.h>
@@ -29,7 +29,7 @@
 
 1602676870 c:\users\micae\onedrive\escritorio\utn\prog & lab\parciales\parcial-laboratorio1\efecha.h
 
-1603160868 c:\users\micae\onedrive\escritorio\utn\prog & lab\parciales\parcial-laboratorio1\etipo.h
+1603214296 c:\users\micae\onedrive\escritorio\utn\prog & lab\parciales\parcial-laboratorio1\etipo.h
 
 1603214068 c:\users\micae\onedrive\escritorio\utn\prog & lab\parciales\parcial-laboratorio1\ecolor.h
 
@@ -42,14 +42,14 @@
 
 1603077910 c:\users\micae\onedrive\escritorio\utn\prog & lab\parciales\parcial-laboratorio1\datastore.h
 
-1603213268 source:c:\users\micae\onedrive\escritorio\utn\prog & lab\parciales\parcial-laboratorio1\ecolor.c
+1603214069 source:c:\users\micae\onedrive\escritorio\utn\prog & lab\parciales\parcial-laboratorio1\ecolor.c
 	<stdio.h>
 	<stdlib.h>
 	<ctype.h>
 	<string.h>
 	"eColor.h"
 
-1603164447 source:c:\users\micae\onedrive\escritorio\utn\prog & lab\parciales\parcial-laboratorio1\etipo.c
+1603214296 source:c:\users\micae\onedrive\escritorio\utn\prog & lab\parciales\parcial-laboratorio1\etipo.c
 	<stdio.h>
 	<stdlib.h>
 	<ctype.h>
@@ -74,9 +74,9 @@
 
 1603078647 source:c:\users\micae\onedrive\escritorio\utn\prog & lab\parciales\parcial-laboratorio1\datastore.c
 
-1603159716 c:\users\micae\onedrive\escritorio\utn\prog & lab\parciales\parcial-laboratorio1\validaciones.h
+1603214401 c:\users\micae\onedrive\escritorio\utn\prog & lab\parciales\parcial-laboratorio1\validaciones.h
 
-1603159716 source:c:\users\micae\onedrive\escritorio\utn\prog & lab\parciales\parcial-laboratorio1\validaciones.c
+1603214401 source:c:\users\micae\onedrive\escritorio\utn\prog & lab\parciales\parcial-laboratorio1\validaciones.c
 	<stdio.h>
 	<stdlib.h>
 	<ctype.h>

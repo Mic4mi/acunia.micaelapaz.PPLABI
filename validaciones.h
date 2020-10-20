@@ -11,13 +11,13 @@
  *  o el minimo es mayor al maximo] - (0) si esta todo Ok
  *
  */
-int obtenerOpcion(int* pResultado, char* errorMsj, int min, int max);
+int validaciones_obtenerOpcion(int* pResultado, char* errorMsj, int min, int max);
 
 /** \brief Le otorga formato a una cadena de caracteres
  *
  * \param char* Nombre cadena de caracteres
  *
  */
-void formatearCadena(char* cadena);
+void validaciones_formatearCadena(char* cadena);
 
 #endif // VALIDACIONES_H_INCLUDED

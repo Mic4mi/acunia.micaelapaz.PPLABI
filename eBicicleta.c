@@ -137,7 +137,7 @@ void bicicletas_imprimirItem(
     char descTipo[30];
     char descColor[30];
 
-    cargarDescTipo(tipos, tamTipos, bici.idTipo, descTipo);
+    tipos_cargarDesc(tipos, tamTipos, bici.idTipo, descTipo);
 
     colores_cargarNombre(colores, tamColores, bici.idColor, descColor);
 
@@ -185,22 +185,22 @@ int bicicletas_agregar(
                 printf("\n Ingrese marca: ");
                 fflush(stdin);
                 gets(nuevaBici.marca);
-                formatearCadena(nuevaBici.marca);
+                validaciones_formatearCadena(nuevaBici.marca);
                 while(strlen(nuevaBici.marca) > 30)
                 {
                     printf("\n Dato invalido. Ingrese marca: ");
                     fflush(stdin);
                     gets(nuevaBici.marca);
-                    formatearCadena(nuevaBici.marca);
+                    validaciones_formatearCadena(nuevaBici.marca);
                 }
                 //tipo
                 system("cls");
                 printf("\n Ingrese ID tipo para la nueva bicicleta\n");
-                imprimirTipos(listaTipos, tamTipos);
+                tipos_imprimirLista(listaTipos, tamTipos);
                 printf("\nIngrese ID: ");
                 fflush(stdin);
                 scanf("%d", &nuevaBici.idTipo);
-                tipoIDValido = encontrarTipoPorID(
+                tipoIDValido = tipos_encontrarPorID(
                                    listaTipos,
                                    tamTipos,
                                    nuevaBici.idTipo
@@ -210,7 +210,7 @@ int bicicletas_agregar(
                     printf("\n Dato invalido. Ingrese ID tipo: ");
                     fflush(stdin);
                     scanf("%d", &nuevaBici.idTipo);
-                    tipoIDValido = encontrarTipoPorID(
+                    tipoIDValido = tipos_encontrarPorID(
                                        listaTipos,
                                        tamTipos,
                                        nuevaBici.idTipo
@@ -330,7 +330,7 @@ int bicicletas_modificar(
             printf("\nMODIFICAR:\n");
             printf("1. Tipo\n");
             printf("2. Rodado\n");
-            rst = obtenerOpcion(&mOpcion, "\nOpcion invalida\n", 1, 2);
+            rst = validaciones_obtenerOpcion(&mOpcion, "\nOpcion invalida\n", 1, 2);
             if(!rst)
             {
                 switch(mOpcion)
@@ -339,11 +339,11 @@ int bicicletas_modificar(
                     //Pedir tipo
                     system("cls");
                     printf("\n Ingrese un ID tipo nuevo\n");
-                    imprimirTipos(listaTipo, tamTipo);
+                    tipos_imprimirLista(listaTipo, tamTipo);
                     printf("\nIngrese ID: ");
                     fflush(stdin);
                     scanf("%d", &nuevaBici.idTipo);
-                    tipoIDValido = encontrarTipoPorID(
+                    tipoIDValido = tipos_encontrarPorID(
                                        listaTipo,
                                        tamTipo,
                                        nuevaBici.idTipo);
@@ -352,7 +352,7 @@ int bicicletas_modificar(
                         printf("\n Dato invalido. Ingrese ID tipo: ");
                         fflush(stdin);
                         scanf("%d", &nuevaBici.idTipo);
-                        tipoIDValido = encontrarTipoPorID(
+                        tipoIDValido = tipos_encontrarPorID(
                                            listaTipo,
                                            tamTipo,
                                            nuevaBici.idTipo);
@@ -547,11 +547,11 @@ int bicicletas_ordenarPorTipoYRodado(
     {
         for(int i = 0; i < tam-1; i++)
         {
-            cargarDescTipo(tipos, tamTipos, lista[i].idTipo, descripcionTipoI);
+            tipos_cargarDesc(tipos, tamTipos, lista[i].idTipo, descripcionTipoI);
 
             for(int j = i + 1; j < tam; j++)
             {
-                cargarDescTipo(tipos, tamTipos, lista[j].idTipo, descripcionTipoJ);
+                tipos_cargarDesc(tipos, tamTipos, lista[j].idTipo, descripcionTipoJ);
 
                 if(strcmp(descripcionTipoI, descripcionTipoJ) > 0)
                 {

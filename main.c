@@ -70,7 +70,7 @@ int main()
     do
     {
         bicicletas_menuPrincipal();
-        opcMenu = obtenerOpcion(&opcSelect, "\nOpcion invalida, intente nuevamente\n", 1, 10);
+        opcMenu = validaciones_obtenerOpcion(&opcSelect, "\nOpcion invalida, intente nuevamente\n", 1, 10);
         if(!opcMenu)
         {
             switch(opcSelect)
@@ -162,7 +162,7 @@ int main()
             case 6:
                 //listar tipos
                 system("cls");
-                imprimirTipos(listaTipos, TAM_TIPOS);
+                tipos_imprimirLista(listaTipos, TAM_TIPOS);
                 break;
             case 7:
                 //LISTAR SERVICIOS
