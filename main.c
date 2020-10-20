@@ -121,6 +121,7 @@ int main()
                 break;
             case 4:
                 system("cls");
+                ordenarPorTipoRodado(listaBicicletas, TAM_BICI, tiposDeBicis, TAM_TIPOS);
                 imprimirBicicletas(listaBicicletas, TAM_BICI, tiposDeBicis, TAM_TIPOS, coloresDeBicis, TAM_COLORES);
                 break;
             case 5:

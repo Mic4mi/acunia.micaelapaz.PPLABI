@@ -37,7 +37,7 @@ int iniciarBicicletas(eBicicleta* lista, int tam);
  */
 int encontrarBicicletaPorID(eBicicleta* lista, int tam, int id);
 
-/** \brief Con una biblioteca de datos, rellena posiciones libres en un array de eBicicleta
+/** \brief Con una biblioteca de datos, reltama posiciones libres en un array de eBicicleta
  *
  * \param eBicicleta* lista
  * \param int tam Tamaño
@@ -116,13 +116,22 @@ void mostrarBicicleta(eBicicleta bici, eTipo* tipos, int tamTipos, eColor* color
 /** \brief Carga en una cadena de caracteres la marca de la biciclieta
  *
  * \param eBicicleta* lista
- * \param int len Bicicletas
+ * \param int tam Bicicletas
  * \param int ID Bicicleta
  * \param char* descripcion puntero a descripción
  * \return int Retorna (-1) si hay un error [Longitud invalida o puntero NULL] - (0) si esta todo Ok
  *
  */
-int cargarDescMarca(eBicicleta* lista, int len, int ID, char* descripcion);
+int cargarDescMarca(eBicicleta* lista, int tam, int ID, char* descripcion);
 
-
+/** \brief Ordena un array de eBicicletas por tipo y rodado
+ *
+ * \param eBicicleta* lista
+ * \param int tam Bicicletas
+ * \param eTipo* lista
+ * \param int tamTipos tipos
+ * \return int Retorna (-1) si hay un error [Longitud invalida o puntero NULL] - (0) si esta todo Ok
+ *
+ */
+int ordenarPorTipoRodado(eBicicleta* lista, int tam, eTipo* tipos, int tamTipos);
 #endif // EBICICLETA_H_INCLUDED

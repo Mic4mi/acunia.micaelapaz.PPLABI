@@ -20,7 +20,7 @@ void menu()
     printf("1. ALTA BICICLETA\n");
     printf("2. MODIFICAR BICICLETA\n");
     printf("3. BAJA BICICLETA\n");
-    printf("4. LISTAR BICICLETAS\n");
+    printf("4. LISTAR BICICLETAS POR TIPO Y RODADO\n");
     printf("5. LISTAR COLORES\n");
     printf("6. LISTAR TIPOS\n");
     printf("7. LISTAR SERVICIOS\n");
@@ -414,6 +414,43 @@ int cargarDescMarca(eBicicleta* lista, int len, int ID, char* descripcion)
                 break;
             }
         }
+    }
+
+    return error;
+}
+
+int ordenarPorTipoRodado(eBicicleta* lista, int tam, eTipo* tipos, int tamTipos)
+{
+    int error = -1;
+    eBicicleta auxBici;
+    char descripcionTipoI[30];
+    char descripcionTipoJ[30];
+
+    if(lista != NULL && tam > 0)
+    {
+        for(int i = 0; i < tam-1; i++)
+        {
+            cargarDescTipo(tipos, tamTipos, lista[i].idTipo, descripcionTipoI);
+
+            for(int j = i + 1; j < tam; j++)
+            {
+                cargarDescTipo(tipos, tamTipos, lista[j].idTipo, descripcionTipoJ);
+
+                if(strcmp(descripcionTipoI, descripcionTipoJ) > 0)
+                {
+                    auxBici = lista[i];
+                    lista[i] = lista[j];
+                    lista[j] = auxBici;
+                }
+                else if(strcmp(descripcionTipoI, descripcionTipoJ) == 0 && lista[i].rodado > lista[j].rodado)
+                {
+                    auxBici = lista[i];
+                    lista[i] = lista[j];
+                    lista[j] = auxBici;
+                }
+            }
+        }
+        error = 0;
     }
 
     return error;
