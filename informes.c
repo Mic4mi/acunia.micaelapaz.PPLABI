@@ -948,7 +948,7 @@ int informes_fecha_servicios(eServicio* listaServicio, int tamServicio, eTrabajo
                 {
                     if(servicioActualId == listaServicio[j].id)
                     {
-                        servicios_imprimirItem(listaServicio[i]);
+                        servicios_imprimirItem(listaServicio[j]);
                     }
                 }
             }
