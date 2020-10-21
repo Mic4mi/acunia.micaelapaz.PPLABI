@@ -16,7 +16,10 @@ int trabajos_agregar(
     eTipo* tiposDeBici,
     int tamTiposBicis,
     eColor* coloresDeBicis,
-    int tamColores)
+    int tamColores,
+    eCliente* listaClientes,
+    int tamClientes
+)
 {
     eTrabajo nuevoTrabajo;
     int biciIDValido;
@@ -50,7 +53,9 @@ int trabajos_agregar(
                     tiposDeBici,
                     tamTiposBicis,
                     coloresDeBicis,
-                    tamColores);
+                    tamColores,
+                    listaClientes,
+                    tamClientes);
                 printf("\n Ingrese ID de la Bicicleta: ");
                 fflush(stdin);
                 scanf("%d", &nuevoTrabajo.idBicicleta);
@@ -236,3 +241,4 @@ int trabajos_hardcodear(eTrabajo* lista, int tam, int numeroDeTrabajos)
 
     return returns;
 }
+

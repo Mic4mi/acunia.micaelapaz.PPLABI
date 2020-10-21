@@ -1,5 +1,6 @@
 
 
+
 int idBicis[5]={9000, 9001, 9002, 9003, 9004};
 char marcas[5][30] = {"Scott", "Giant", "Cube", "Lapierre", "Orbea"};
 int idTipos[5] = {1003, 1001, 1002, 1000, 1002};
@@ -10,3 +11,6 @@ int idTrabajosServicios[5] = {20000, 20001, 20002, 20003, 20000};
 int trabajosDias[5] = {15, 20, 30, 14,12};
 int trabajosMes = 10;
 int trabajosAnio = 2019;
+int idClientes[5] = {100,101,102,103,104};
+char clientesNombre[5][51] = {"Marcela Gomez", "Ramiro Perez", "Esteban Gonzalez", "Rosario Pitmann", "Jose Sala"};
+char clientesGenero[5] = {'f', 'm', 'm', 'f', 'm'};

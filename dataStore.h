@@ -11,6 +11,8 @@ int idTrabajosServicios[5];
 int trabajosDias[5];
 int trabajosMes;
 int trabajosAnio;
-
+int idClientes[5];
+char clientesNombre[5][51];
+char clientesGenero[5];
 
 #endif // DATASTORE_H_INCLUDED

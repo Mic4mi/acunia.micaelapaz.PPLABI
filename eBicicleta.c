@@ -5,6 +5,7 @@
 #include "dataStore.h"
 #include "eTipo.h"
 #include "eColor.h"
+#include "eCliente.h"
 #include "eBicicleta.h"
 #include "validaciones.h"
 
@@ -19,13 +20,15 @@ void bicicletas_menuPrincipal()
     printf("1. ALTA BICICLETA\n");
     printf("2. MODIFICAR BICICLETA\n");
     printf("3. BAJA BICICLETA\n");
-    printf("4. LISTAR BICICLETAS POR TIPO Y RODADO\n");
-    printf("5. LISTAR COLORES\n");
-    printf("6. LISTAR TIPOS\n");
-    printf("7. LISTAR SERVICIOS\n");
-    printf("8. ALTA TRABAJO\n");
-    printf("9. LISTAR TRABAJOS\n");
-    printf("10. SALIR\n");
+    printf("4. ALTA TRABAJO\n");
+    printf("5. LISTAR BICICLETAS\n");
+    printf("6. LISTAR TRABAJOS\n");
+    printf("7. LISTAR COLORES\n");
+    printf("8. LISTAR TIPOS\n");
+    printf("9. LISTAR CLIENTES\n");
+    printf("10. LISTAR SERVICIOS\n");
+    printf("11. INFORMES\n");
+    printf("12. SALIR\n");
 }
 
 int bicicletas_inicializar(eBicicleta* lista, int tam)
@@ -78,6 +81,7 @@ int bicicletas_hardcodear(eBicicleta* lista, int tam, int numeroDeBicis)
                 strcpy(lista[i].marca, marcas[i]);
                 lista[i].idTipo = idTipos[i];
                 lista[i].idColor = idColores[i];
+                lista[i].idCliente = idClientes[i];
                 lista[i].rodado = rodados[i];
                 returns++;
             }
@@ -93,7 +97,9 @@ int bicicletas_imprimirLista(
     eTipo* tipos,
     int tamTipos,
     eColor* colores,
-    int tamColores)
+    int tamColores,
+    eCliente* clientes,
+    int tamClientes)
 {
     if(
         lista != NULL &&
@@ -102,12 +108,14 @@ int bicicletas_imprimirLista(
         tipos != NULL &&
         tamTipos> 0 &&
         colores != NULL &&
-        tamColores > 0)
+        tamColores > 0 &&
+        clientes != NULL &&
+        tamClientes > 0)
     {
         printf("_________________________________________________________________________________________________________\n");
         printf("                                                BICICLETAS      \n");
         printf("_________________________________________________________________________________________________________\n");
-        printf("  ID            MARCA                      TIPO                     COLOR                    RODADO      \n");
+        printf("  ID            MARCA                TIPO                COLOR           RODADO             CLIENTE               \n");
         printf("_________________________________________________________________________________________________________\n");
         for(int i = 0; i < tam; i++)
         {
@@ -118,7 +126,9 @@ int bicicletas_imprimirLista(
                     tipos,
                     tamTipos,
                     colores,
-                    tamColores);
+                    tamColores,
+                    clientes,
+                    tamClientes);
             }
         }
         printf("\n\n");
@@ -132,21 +142,28 @@ void bicicletas_imprimirItem(
     eTipo* tipos,
     int tamTipos,
     eColor* colores,
-    int tamColores)
+    int tamColores,
+    eCliente* clientes,
+    int tamClientes
+)
 {
     char descTipo[30];
     char descColor[30];
+    char nombreCliente[51];
 
+    clientes_cargarNombre(clientes, tamClientes, bici.idCliente, nombreCliente);
+    colores_cargarNombre(colores, tamColores, bici.idColor, descColor);
     tipos_cargarDesc(tipos, tamTipos, bici.idTipo, descTipo);
 
-    colores_cargarNombre(colores, tamColores, bici.idColor, descColor);
 
-    printf("%5d %15s           %15s           %15s                    %4.2f\n",
+
+    printf("%5d %15s      %15s     %15s            %4.2f  %21s\n",
            bici.id,
            bici.marca,
            descTipo,
            descColor,
-           bici.rodado
+           bici.rodado,
+           nombreCliente
           );
 }
 
@@ -157,11 +174,16 @@ int bicicletas_agregar(
     eTipo* listaTipos,
     int tamTipos,
     eColor* listaColores,
-    int tamColores)
+    int tamColores,
+    eCliente* listaClientes,
+    int tamClientes
+)
 {
     eBicicleta nuevaBici;
     int tipoIDValido;
     int colorIDValido;
+    int clienteIDValido;
+
     if(
         lista != NULL &&
         tam > 0 &&
@@ -169,7 +191,9 @@ int bicicletas_agregar(
         listaTipos != NULL &&
         tamTipos > 0 &&
         listaColores != NULL &&
-        tamColores > 0)
+        tamColores > 0 &&
+        listaClientes != NULL &&
+        tamClientes > 0)
     {
         system("cls");
         printf("_________________________________________________________________________________________________________\n");
@@ -248,7 +272,6 @@ int bicicletas_agregar(
                 }
                 //rodado
                 system("cls");
-                system("cls");
                 printf("_________________________________________________________________________________________________________\n");
                 printf("                                            AGREGAR BICICLETA     \n");
                 printf("_________________________________________________________________________________________________________\n");
@@ -265,6 +288,32 @@ int bicicletas_agregar(
                     printf("\nDato Invalido. Ingrese rodado: ");
                     fflush(stdin);
                     scanf("%f", &nuevaBici.rodado);
+                }
+                //cliente
+                system("cls");
+                printf("_________________________________________________________________________________________________________\n");
+                printf("                                            AGREGAR BICICLETA     \n");
+                printf("_________________________________________________________________________________________________________\n");
+                printf("\nIngrese un cliente duenio de la nueva bicicleta\n");
+                clientes_imprimirLista(listaClientes, tamClientes);
+                printf("\nIngrese ID: ");
+                fflush(stdin);
+                scanf("%d", &nuevaBici.idCliente);
+                clienteIDValido = clientes_buscarPorID(
+                                      listaClientes,
+                                      tamClientes,
+                                      nuevaBici.idCliente
+                                  );
+                while(clienteIDValido < 0)
+                {
+                    printf("\nDato invalido. Ingrese ID: ");
+                    fflush(stdin);
+                    scanf("%d", &nuevaBici.idCliente);
+                    clienteIDValido = clientes_buscarPorID(
+                                          listaClientes,
+                                          tamClientes,
+                                          nuevaBici.idCliente
+                                      );
                 }
 
                 lista[i] = nuevaBici;
@@ -283,7 +332,9 @@ int bicicletas_modificar(
     eTipo* listaTipo,
     int tamTipo,
     eColor* listaColor,
-    int tamColor)
+    int tamColor,
+    eCliente* clientes,
+    int tamClientes)
 {
     eBicicleta nuevaBici;
     int error = -1;
@@ -304,14 +355,16 @@ int bicicletas_modificar(
     {
         system("cls");
         printf("_________________________________________________________________________________________________________\n");
-        printf("                                  BIENVENIDO AL MENU DE MODIFICACIONES                                  \n");
+        printf("                                     BIENVENIDO AL MENU DE MODIFICACIONES                                  \n");
         bicicletas_imprimirLista(
             lista,
             tam,
             listaTipo,
             tamTipo,
             listaColor,
-            tamColor);
+            tamColor,
+            clientes,
+            tamClientes);
         printf("\nIngrese ID de la bicicleta a modificar: ");
         fflush(stdin);
         scanf("%d", &id);
@@ -332,14 +385,16 @@ int bicicletas_modificar(
             printf("_________________________________________________________________________________________________________\n");
             printf("                                            BICICLETA SELECCIONADA      \n");
             printf("_________________________________________________________________________________________________________\n");
-            printf("  ID            MARCA                      TIPO                     COLOR                    RODADO      \n");
+            printf("  ID            MARCA                TIPO                COLOR           RODADO             CLIENTE               \n");
             printf("_________________________________________________________________________________________________________\n");
             bicicletas_imprimirItem(
                 lista[index],
                 listaTipo,
                 tamTipo,
                 listaColor,
-                tamColor);
+                tamColor,
+                clientes,
+                tamClientes);
             printf("_________________________________________________________________________________________________________\n");
             printf("\n   MODIFICAR:\n");
             printf("   1. Tipo\n");
@@ -374,7 +429,6 @@ int bicicletas_modificar(
                                            tamTipo,
                                            nuevaBici.idTipo);
                     }
-                    //pedir confirmacion
                     printf("\nConfirma modificacion? s-si n-no\n");
                     fflush(stdin);
                     scanf("%c", &confirmacion);
@@ -419,7 +473,6 @@ int bicicletas_modificar(
 
                     printf("\n Rodado anterior: %.2f", lista[index].rodado);
                     printf("\n Rodado nuev0: %.2f", nuevaBici.rodado);
-                    //confirmar modificacion
                     printf("\n Confirma modificacion? s-si n-no\n");
                     fflush(stdin);
                     scanf("%c", &confirmacion);
@@ -455,7 +508,9 @@ int bicicletas_eliminar(
     eTipo* listaTipo,
     int tamTipo,
     eColor* listaColor,
-    int tamColor)
+    int tamColor,
+    eCliente* listaClientes,
+    int tamClientes)
 {
     int error = -1;
     int id;
@@ -478,7 +533,10 @@ int bicicletas_eliminar(
             listaTipo,
             tamTipo,
             listaColor,
-            tamColor);
+            tamColor,
+            listaClientes,
+            tamClientes
+        );
         printf("\nIngrese ID de la bicicleta a eliminar: ");
         fflush(stdin);
         scanf("%d", &id);
@@ -499,14 +557,16 @@ int bicicletas_eliminar(
             printf("_________________________________________________________________________________________________________\n");
             printf("                                        BICICLETA SELECCIONADA     \n");
             printf("_________________________________________________________________________________________________________\n");
-            printf("  ID            MARCA                      TIPO                     COLOR                    RODADO      \n");
+            printf("  ID            MARCA                TIPO                COLOR           RODADO             CLIENTE               \n");
             printf("_________________________________________________________________________________________________________\n");
             bicicletas_imprimirItem(
                 lista[index],
                 listaTipo,
                 tamTipo,
                 listaColor,
-                tamColor);
+                tamColor,
+                listaClientes,
+                tamClientes);
             printf("_________________________________________________________________________________________________________\n");
             printf("\n Confirmar baja? s - si; n - no\n");
             fflush(stdin);
@@ -538,15 +598,15 @@ int bicicletas_eliminar(
 
 int bicicletas_cargarDescMarca(
     eBicicleta* lista,
-    int len,
+    int tam,
     int ID,
     char* descripcion)
 {
     int error = -1;
 
-    if(lista != NULL && descripcion != NULL && len > 0)
+    if(lista != NULL && descripcion != NULL && tam > 0)
     {
-        for(int i = 0; i < len; i++)
+        for(int i = 0; i < tam; i++)
         {
             if(lista[i].id == ID)
             {
@@ -559,39 +619,3 @@ int bicicletas_cargarDescMarca(
 
     return error;
 }
-
-int bicicletas_ordenarPorTipoYRodado(
-    eBicicleta* lista,
-    int tam,
-    eTipo* tipos,
-    int tamTipos)
-{
-    int error = -1;
-    eBicicleta auxBici;
-
-    if(lista != NULL && tam > 0 && tipos != NULL && tamTipos > 0)
-    {
-        for(int i = 0; i < tam-1; i++)
-        {
-            for(int j = i + 1; j < tam; j++)
-            {
-                if(lista[i].idTipo > lista[j].idTipo)
-                {
-                    auxBici = lista[i];
-                    lista[i] = lista[j];
-                    lista[j] = auxBici;
-                }
-                else if(lista[i].idTipo == lista[j].idTipo && lista[i].rodado > lista[j].rodado)
-                {
-                    auxBici = lista[i];
-                    lista[i] = lista[j];
-                    lista[j] = auxBici;
-                }
-            }
-        }
-        error = 0;
-    }
-
-    return error;
-}
-

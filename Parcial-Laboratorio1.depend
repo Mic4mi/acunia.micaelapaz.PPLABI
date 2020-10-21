@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1603220794 source:c:\users\micae\onedrive\escritorio\utn\prog & lab\parciales\parcial-laboratorio1\ebicicleta.c
+1603283569 source:c:\users\micae\onedrive\escritorio\utn\prog & lab\parciales\parcial-laboratorio1\ebicicleta.c
 	<stdio.h>
 	<stdlib.h>
 	<ctype.h>
@@ -7,14 +7,16 @@
 	"dataStore.h"
 	"eTipo.h"
 	"eColor.h"
+	"eCliente.h"
 	"eBicicleta.h"
 	"validaciones.h"
 
-1603213082 c:\users\micae\onedrive\escritorio\utn\prog & lab\parciales\parcial-laboratorio1\ebicicleta.h
+1603282663 c:\users\micae\onedrive\escritorio\utn\prog & lab\parciales\parcial-laboratorio1\ebicicleta.h
 	"eColor.h"
 	"eTipo.h"
+	"eCliente.h"
 
-1603218507 source:c:\users\micae\onedrive\escritorio\utn\prog & lab\parciales\parcial-laboratorio1\main.c
+1603284588 source:c:\users\micae\onedrive\escritorio\utn\prog & lab\parciales\parcial-laboratorio1\main.c
 	<stdio.h>
 	<stdlib.h>
 	<ctype.h>
@@ -25,6 +27,8 @@
 	"eBicicleta.h"
 	"eServicio.h"
 	"eTrabajo.h"
+	"eCliente.h"
+	"informes.h"
 	"validaciones.h"
 
 1602676870 c:\users\micae\onedrive\escritorio\utn\prog & lab\parciales\parcial-laboratorio1\efecha.h
@@ -35,12 +39,12 @@
 
 1603214021 c:\users\micae\onedrive\escritorio\utn\prog & lab\parciales\parcial-laboratorio1\eservicio.h
 
-1603207994 c:\users\micae\onedrive\escritorio\utn\prog & lab\parciales\parcial-laboratorio1\etrabajo.h
+1603282871 c:\users\micae\onedrive\escritorio\utn\prog & lab\parciales\parcial-laboratorio1\etrabajo.h
 	"eFecha.h"
 	"eServicio.h"
 	"eBicicleta.h"
 
-1603077910 c:\users\micae\onedrive\escritorio\utn\prog & lab\parciales\parcial-laboratorio1\datastore.h
+1603281985 c:\users\micae\onedrive\escritorio\utn\prog & lab\parciales\parcial-laboratorio1\datastore.h
 
 1603214069 source:c:\users\micae\onedrive\escritorio\utn\prog & lab\parciales\parcial-laboratorio1\ecolor.c
 	<stdio.h>
@@ -56,7 +60,7 @@
 	<string.h>
 	"eTipo.h"
 
-1603215696 source:c:\users\micae\onedrive\escritorio\utn\prog & lab\parciales\parcial-laboratorio1\etrabajo.c
+1603282870 source:c:\users\micae\onedrive\escritorio\utn\prog & lab\parciales\parcial-laboratorio1\etrabajo.c
 	<stdio.h>
 	<stdlib.h>
 	<ctype.h>
@@ -72,7 +76,7 @@
 	<string.h>
 	"eServicio.h"
 
-1603218638 source:c:\users\micae\onedrive\escritorio\utn\prog & lab\parciales\parcial-laboratorio1\datastore.c
+1603281984 source:c:\users\micae\onedrive\escritorio\utn\prog & lab\parciales\parcial-laboratorio1\datastore.c
 
 1603214401 c:\users\micae\onedrive\escritorio\utn\prog & lab\parciales\parcial-laboratorio1\validaciones.h
 
@@ -82,4 +86,33 @@
 	<ctype.h>
 	<string.h>
 	"validaciones.h"
+
+1603282089 c:\users\micae\onedrive\escritorio\utn\prog & lab\parciales\parcial-laboratorio1\ecliente.h
+
+1603282088 source:c:\users\micae\onedrive\escritorio\utn\prog & lab\parciales\parcial-laboratorio1\ecliente.c
+	<stdio.h>
+	<stdlib.h>
+	<ctype.h>
+	<string.h>
+	"eCliente.h"
+	"validaciones.h"
+	"dataStore.h"
+
+1603290137 source:c:\users\micae\onedrive\escritorio\utn\prog & lab\parciales\parcial-laboratorio1\informes.c
+	<stdio.h>
+	<stdlib.h>
+	<ctype.h>
+	<string.h>
+	"eFecha.h"
+	"eTipo.h"
+	"eColor.h"
+	"eBicicleta.h"
+	"eServicio.h"
+	"eTrabajo.h"
+	"eCliente.h"
+	"informes.h"
+	"validaciones.h"
+	"informes.h"
+
+1603289223 c:\users\micae\onedrive\escritorio\utn\prog & lab\parciales\parcial-laboratorio1\informes.h
 

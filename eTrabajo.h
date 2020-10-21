@@ -46,6 +46,8 @@ int trabajos_hardcodear(eTrabajo* lista, int tam, int numeroDeTrabajos);
  * \param tamTipos int
  * \param lista eColor*
  * \param tamColores int
+ * \param lista eCliente*
+ * \param tam Clientes int
  * \return int Retorna (-1) si hay un Error [longitud invalida o puntero NULL o no hay espacio] - (0) si esta todo Ok
  *
  */
@@ -60,7 +62,10 @@ int trabajos_agregar(
     eTipo* tiposDeBici,
     int tamTiposBicis,
     eColor* coloresDeBicis,
-    int tamColores);
+    int tamColores,
+    eCliente* listaClientes,
+    int tamClientes
+);
 
 /** \brief Imprime el contenido del array de trabajo
  *
@@ -96,4 +101,6 @@ void trabajos_imprimirItem(
     int tamBicis,
     eServicio* servicios,
     int tamServicios);
+
+
 #endif // ETRABAJO_H_INCLUDED
