@@ -55,7 +55,12 @@ int informes_Menu(
     do
     {
         informes_subMenu();
-        subMenu = validaciones_obtenerOpcion(&subMenu_opcionSeleccionada, "\nOpcion invalida. Intente nuevamente\n", 1, 11);
+        subMenu = validaciones_obtenerOpcion(
+                      &subMenu_opcionSeleccionada,
+                      "\nOpcion invalida. Intente nuevamente\n",
+                      1,
+                      11
+                  );
 
         if(!subMenu)
         {
@@ -180,7 +185,21 @@ int informes_Menu(
                 );
                 break;
             case 9:
-                printf("\nOpcion en mantenimiento\n");
+                informes_encabezadoSubMenu();
+                informes_serviciosxBicicletas(
+                    listaBicicletas,
+                    tamBicicletas,
+                    listaServicios,
+                    tamServicios,
+                    listaTrabajos,
+                    tamTrabajos,
+                    listaTipos,
+                    tamTipos,
+                    listaColores,
+                    tamColores,
+                    listaClientes,
+                    tamClientes
+                );
                 break;
             case 10:
                 printf("\nOpcion en mantenimiento\n");
@@ -789,20 +808,33 @@ int informes_serviciosxBicicletas(
     eServicio* listaServicios,
     int tamServicios,
     eTrabajo* listaTrabajos,
-    int tamTrabajos
+    int tamTrabajos,
+    eTipo* listaTipos,
+    int tamTipos,
+    eColor* listaColores,
+    int tamColores,
+    eCliente* listaclientes,
+    int tamClientes
 )
 {
     int error = -1;
     int servicioValido;
-    int servicioIdValido = 0;
+    int servicioIdValido;
+    int idTrabajoActual;
 
     if(
         listaBicicletas != NULL &&
         tambicicletas > 0 &&
         listaServicios != NULL &&
-        tamServicios > 0
+        tamServicios > 0 &&
         listaTrabajos != NULL &&
-        tamTrabajos > 0)
+        tamTrabajos > 0 &&
+        listaTipos != NULL &&
+        tamTipos > 0 &&
+        listaColores!= NULL &&
+        tamColores > 0 &&
+        listaclientes!= NULL &&
+        tamClientes > 0)
     {
 
         //pedir un servicio
@@ -818,7 +850,7 @@ int informes_serviciosxBicicletas(
         servicioIdValido = servicios_buscarPorID(
                                listaServicios,
                                tamServicios,
-                               servicioIdValido
+                               servicioValido
                            );
         while(servicioIdValido < 0)
         {
@@ -828,14 +860,74 @@ int informes_serviciosxBicicletas(
             servicioIdValido = servicios_buscarPorID(
                                    listaServicios,
                                    tamServicios,
-                                   servicioIdValido
+                                   servicioValido
                                );
         }
 
+        informes_bicicletas_encabezado();
         //mostrar las bicis que tuvieron ese servicio
-        for(int i = 0; i < tamTrabajos; i++){
+        for(int i = 0; i < tamTrabajos; i++)
+        {
+            if(listaTrabajos[i].idServicio == servicioValido)
+            {
+                idTrabajoActual = listaTrabajos[i].idBicicleta;
+                for(int j = 0; j < tambicicletas; j++)
+                {
+                    if(listaBicicletas[j].id == idTrabajoActual)
+                    {
+                        bicicletas_imprimirItem(
+                            listaBicicletas[i],
+                            listaTipos,
+                            tamTipos,
+                            listaColores,
+                            tamColores,
+                            listaclientes,
+                            tamClientes
+                        );
+                    }
+                }
+            }
 
         }
+
+        error = 0;
+    }
+
+    return error;
+}
+
+int fecha_servicios(eFecha fecha, eServicio* listaServicio, int tamServicio, eTrabajo* listaTrabajos, int tamTrabajos)
+{
+    int error = -1;
+
+    if(listaServicio != NULL && tamServicio > 0 && listaTrabajos != NULL && tamTrabajos > 0)
+    {
+
+        //pedir y validar fecha
+        printf("\n Ingrese fecha dd/mm/aaaa: ");
+        fflush(stdin);
+        scanf("%d/%d/%d",
+              &fecha.dia,
+              &fecha.mes,
+              &fecha.anio
+             );
+        while(
+            nuevoTrabajo.fecha.dia > 31 ||
+            nuevoTrabajo.fecha.dia < 0 ||
+            nuevoTrabajo.fecha.mes > 12 ||
+            nuevoTrabajo.fecha.mes < 0 ||
+            nuevoTrabajo.fecha.anio < 1900 ||
+            nuevoTrabajo.fecha.anio > 2100
+        )
+        {
+            printf("\n Dato invalido\n Ingrese fecha dd/mm/aaaa: ");
+            fflush(stdin);
+            scanf("%d/%d/%d",
+                  &nuevoTrabajo.fecha.dia,
+                  &nuevoTrabajo.fecha.mes,
+                  &nuevoTrabajo.fecha.anio);
+        }
+
 
         error = 0;
     }
