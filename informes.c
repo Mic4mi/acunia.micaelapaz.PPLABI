@@ -203,7 +203,11 @@ int informes_Menu(
                 break;
             case 10:
                 informes_encabezadoSubMenu();
-                informes
+                informes_fecha_servicios(
+                    listaServicios,
+                    tamServicios,
+                    listaTrabajos,
+                    tamTrabajos);
                 break;
             case 11:
                 printf("\nVolviendo al menu principal...\n");
@@ -897,10 +901,11 @@ int informes_serviciosxBicicletas(
     return error;
 }
 
-int informes_fecha_servicios(eFecha fecha, eServicio* listaServicio, int tamServicio, eTrabajo* listaTrabajos, int tamTrabajos)
+int informes_fecha_servicios(eServicio* listaServicio, int tamServicio, eTrabajo* listaTrabajos, int tamTrabajos)
 {
     int error = -1;
     int servicioActualId;
+    eFecha fechaUsuario;
 
     if(listaServicio != NULL && tamServicio > 0 && listaTrabajos != NULL && tamTrabajos > 0)
     {
@@ -909,38 +914,40 @@ int informes_fecha_servicios(eFecha fecha, eServicio* listaServicio, int tamServ
         printf("\n Ingrese fecha dd/mm/aaaa: ");
         fflush(stdin);
         scanf("%d/%d/%d",
-              &fecha.dia,
-              &fecha.mes,
-              &fecha.anio
+              &fechaUsuario.dia,
+              &fechaUsuario.mes,
+              &fechaUsuario.anio
              );
         while(
-            fecha.dia > 31 ||
-            fecha.dia < 0 ||
-            fecha.mes > 12 ||
-            fecha.mes < 0 ||
-            fecha.anio < 1900 ||
-            fecha.anio > 2100
+            fechaUsuario.dia > 31 ||
+            fechaUsuario.dia < 0 ||
+            fechaUsuario.mes > 12 ||
+            fechaUsuario.mes < 0 ||
+            fechaUsuario.anio < 1900 ||
+            fechaUsuario.anio > 2100
         )
         {
             printf("\n Dato invalido\n Ingrese fecha dd/mm/aaaa: ");
             fflush(stdin);
             scanf("%d/%d/%d",
-                  &fecha.dia,
-                  &fecha.mes,
-                  &fecha.anio);
+                  &fechaUsuario.dia,
+                  &fechaUsuario.mes,
+                  &fechaUsuario.anio);
         }
 
         //listar servicios
         for(int i = 0; i < tamTrabajos; i++)
         {
             if(
-               fecha.dia == listaTrabajos[i].fecha.dia &&
-               fecha.mes == listaTrabajos[i].fecha.mes &&
-               fecha.anio == listaTrabajos[i].fecha.anio)
+                fechaUsuario.dia == listaTrabajos[i].fecha.dia &&
+                fechaUsuario.mes == listaTrabajos[i].fecha.mes &&
+                fechaUsuario.anio == listaTrabajos[i].fecha.anio)
             {
                 servicioActualId = listaTrabajos[i].idServicio;
-                for(int j = 0; j < tamServicio; j++){
-                    if(servicioActualId == listaServicio[j].id){
+                for(int j = 0; j < tamServicio; j++)
+                {
+                    if(servicioActualId == listaServicio[j].id)
+                    {
                         servicios_imprimirItem(listaServicio[i]);
                     }
                 }

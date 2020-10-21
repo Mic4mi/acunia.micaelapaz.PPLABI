@@ -264,14 +264,6 @@ int informes_serviciosxBicicletas(
 
 /** \brief Imprime los servicios realizados en una fecha
  *
- * \param eBicicleta* listaBicicletas
- * \param int tamBicicletas
- * \param  eColor* listaColores
- * \param  int tamColores
- * \param eTipo* listaTipos
- * \param int tamTipos
- * \param eCliente* listaClientes
- * \param int tamClientes
  * \param eTrabajo* listaTrabajos
  * \param int tamTrabajos
  * \param eServicio* listaServicios
@@ -279,5 +271,10 @@ int informes_serviciosxBicicletas(
  * \return int Retorna (-1) si hay un error [Longitud invalida o puntero NULL] - (0) si esta todo Ok
  *
  */
-int informes_fecha_servicios(eFecha fecha, eServicio* listaServicio, int tamServicio, eTrabajo* listaTrabajos, int tamTrabajos);
+int informes_fecha_servicios(
+    eServicio* listaServicio,
+    int tamServicio,
+    eTrabajo* listaTrabajos,
+    int tamTrabajos);
+
 #endif // INFORMES_H_INCLUDED
