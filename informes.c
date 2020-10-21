@@ -202,7 +202,8 @@ int informes_Menu(
                 );
                 break;
             case 10:
-                printf("\nOpcion en mantenimiento\n");
+                informes_encabezadoSubMenu();
+                informes
                 break;
             case 11:
                 printf("\nVolviendo al menu principal...\n");
@@ -896,9 +897,10 @@ int informes_serviciosxBicicletas(
     return error;
 }
 
-int fecha_servicios(eFecha fecha, eServicio* listaServicio, int tamServicio, eTrabajo* listaTrabajos, int tamTrabajos)
+int informes_fecha_servicios(eFecha fecha, eServicio* listaServicio, int tamServicio, eTrabajo* listaTrabajos, int tamTrabajos)
 {
     int error = -1;
+    int servicioActualId;
 
     if(listaServicio != NULL && tamServicio > 0 && listaTrabajos != NULL && tamTrabajos > 0)
     {
@@ -912,22 +914,38 @@ int fecha_servicios(eFecha fecha, eServicio* listaServicio, int tamServicio, eTr
               &fecha.anio
              );
         while(
-            nuevoTrabajo.fecha.dia > 31 ||
-            nuevoTrabajo.fecha.dia < 0 ||
-            nuevoTrabajo.fecha.mes > 12 ||
-            nuevoTrabajo.fecha.mes < 0 ||
-            nuevoTrabajo.fecha.anio < 1900 ||
-            nuevoTrabajo.fecha.anio > 2100
+            fecha.dia > 31 ||
+            fecha.dia < 0 ||
+            fecha.mes > 12 ||
+            fecha.mes < 0 ||
+            fecha.anio < 1900 ||
+            fecha.anio > 2100
         )
         {
             printf("\n Dato invalido\n Ingrese fecha dd/mm/aaaa: ");
             fflush(stdin);
             scanf("%d/%d/%d",
-                  &nuevoTrabajo.fecha.dia,
-                  &nuevoTrabajo.fecha.mes,
-                  &nuevoTrabajo.fecha.anio);
+                  &fecha.dia,
+                  &fecha.mes,
+                  &fecha.anio);
         }
 
+        //listar servicios
+        for(int i = 0; i < tamTrabajos; i++)
+        {
+            if(
+               fecha.dia == listaTrabajos[i].fecha.dia &&
+               fecha.mes == listaTrabajos[i].fecha.mes &&
+               fecha.anio == listaTrabajos[i].fecha.anio)
+            {
+                servicioActualId = listaTrabajos[i].idServicio;
+                for(int j = 0; j < tamServicio; j++){
+                    if(servicioActualId == listaServicio[j].id){
+                        servicios_imprimirItem(listaServicio[i]);
+                    }
+                }
+            }
+        }
 
         error = 0;
     }

@@ -279,5 +279,5 @@ int informes_serviciosxBicicletas(
  * \return int Retorna (-1) si hay un error [Longitud invalida o puntero NULL] - (0) si esta todo Ok
  *
  */
-int fecha_servicios(eFecha fecha, eServicio* listaServicio, int tamServicio);
+int informes_fecha_servicios(eFecha fecha, eServicio* listaServicio, int tamServicio, eTrabajo* listaTrabajos, int tamTrabajos);
 #endif // INFORMES_H_INCLUDED
